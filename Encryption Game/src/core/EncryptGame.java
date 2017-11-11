@@ -40,36 +40,31 @@ public class EncryptGame {
 		player = new EncryptPlayer(strp_playerName);
 		str_currentSentence = strarr_codes[int_level];
 		scan = new Scanner(System.in);
-		//TODO: Hard-coded test values, should DEFINITELY be changed later
-//		strarr_codes[0] = "Bxnxnx";
-//		strarr_codes[1] = "Hgtgtg";
-//		strarr_codes[2] = "Hgzgzg";
-//		strarr_codes[3] = "Bxnxnx";
-//		strarr_codes[4] = "Bxnxnx";
-//		strarr_sentences[0] = "Banana";
-//		strarr_sentences[1] = "Banana";
-//		strarr_sentences[2] = "Banana";
-//		strarr_sentences[3] = "Banana";
-//		strarr_sentences[4] = "Banana";
+	}
+	/**
+	 * @Richie
+	 * This method stores a specified amount of unique words from wordBank and encryptedWordBank
+	 * and stores them in strarr_sentences and strarr_codes respectively.
+	 */
+	public void selectWords() {
 		
-		/**
-		 * @Richie
-		 * The for-loop below takes i words from wordBank and encryptedWordBank
-		 * and stores them in strarr_sentences and strarr_codes respectively.
-		 * 
-		 * Added print statements for now to show which words were stored.
-		 * 
-		 * Currently may store duplicate words (to be fixed later on)
-		 */
+		ArrayList<Integer> wordIndeces = new ArrayList<Integer>();
 		Random random = new Random();
+		
 		/* Store (3) words and encryptedWords */
 		for (int i = 0; i < 3; i++) {
 			int index = random.nextInt(3);
-			
+			/* Validate words to ensure duplicates are not allowed within the same game */
+			while (wordIndeces.contains(index)) {
+				index = random.nextInt(3);
+			}
+			wordIndeces.add(index);
+			/* Store unencrypted words in strarr_sentences and encrypted words in strarr_codes */
 			strarr_sentences[i] = wordBank[ index ];
 			strarr_codes[i] = encryptedWordBank[ index ];
-			System.out.println( strarr_sentences[i] );
-			System.out.println( strarr_codes[i]);
+			/* For testing purposes, display which words are selected */
+			System.out.println( "Original Word: " + strarr_sentences[i] );
+			System.out.println( "Encrypted:     " + strarr_codes[i]);
 		}
 	}
 	
@@ -80,10 +75,12 @@ public class EncryptGame {
 	 * scanner once this method has run.
 	 */
 	public void runGame(){
+		selectWords();
 		char chr_choice = ' ';
 		System.out.println("Welcome to the Encryption Project!");
-		 str_currentSentence = strarr_codes[int_level];
-		while(chr_choice != 'q' && chr_choice != 'Q'){
+		str_currentSentence = strarr_codes[int_level];
+		/* Run game until user chooses to quit or until no more encrypted words remain */
+		while(chr_choice != 'q' && chr_choice != 'Q' && strarr_codes[int_level] != null){
 			System.out.println("Current word: " + str_currentSentence);
 			System.out.println("Please press \'B\' for Su(b)stitution.");
 			System.out.println("Please press \'H\' to S(h)ift the letters.");
@@ -104,14 +101,16 @@ public class EncryptGame {
 				case 'g':
 				case 'G':
 					scoreSentence(str_currentSentence);
-					//TODO: Need to add ability to check if it is about to go out of bounds, as well as maybe set up a reset method.
+					// TODO: Need to add ability to check if it is about to go out of bounds, as well as maybe set up a reset method.
+					// @Richie: Fixed by adding condition in main while loop
 					int_level++;
 					str_currentSentence = strarr_codes[int_level];
 					int_score = 0;
 					break;
 				case 'q':
 				case 'Q':
-					System.out.println("Goodbye!");
+					// Exit print statement moved to execute after while loop is exited
+					// System.out.println("Goodbye!");
 					break;
 				default:
 					System.out.println("Sorry, I didn\'t understand that! Please enter a valid command.");
@@ -120,6 +119,7 @@ public class EncryptGame {
 		
 			}
 		}
+		System.out.println("Game over. Goodbye!");
 		scan.close();
 	}
 
