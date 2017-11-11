@@ -8,6 +8,11 @@ import java.util.*;
  *
  */
 public class EncryptGame {
+	
+	// @Richie
+	private String[] wordBank;
+	private String[] encryptedWordBank;
+	
 	private String[] strarr_sentences, strarr_codes;
 	private int int_level, int_score;
 	private EncryptPlayer player;
@@ -20,6 +25,14 @@ public class EncryptGame {
 	 * @param strp_playerName Name of the player, should definitely find a better way to do this.
 	 */
 	public EncryptGame(String strp_playerName){
+		/**
+		 * @Richie
+		 * Added wordBank and encryptedWordBank. Each string in encyptedWordBank is associated with the string in wordBank that 
+		 * has the same index.
+		 */
+		wordBank = new String[] {"Interface", "Application", "Method"};
+		encryptedWordBank = new String[] {"Iqtgrvahg", "Awwlyfatyon", "Vgchnd"};
+		
 		strarr_sentences = new String[10];
 		strarr_codes = new String[10];
 		int_level = 0;
@@ -28,17 +41,36 @@ public class EncryptGame {
 		str_currentSentence = strarr_codes[int_level];
 		scan = new Scanner(System.in);
 		//TODO: Hard-coded test values, should DEFINITELY be changed later
-		strarr_codes[0] = "Bxnxnx";
-		strarr_codes[1] = "Hgtgtg";
-		strarr_codes[2] = "Hgzgzg";
-		strarr_codes[3] = "Bxnxnx";
-		strarr_codes[4] = "Bxnxnx";
-		strarr_sentences[0] = "Banana";
-		strarr_sentences[1] = "Banana";
-		strarr_sentences[2] = "Banana";
-		strarr_sentences[3] = "Banana";
-		strarr_sentences[4] = "Banana";
+//		strarr_codes[0] = "Bxnxnx";
+//		strarr_codes[1] = "Hgtgtg";
+//		strarr_codes[2] = "Hgzgzg";
+//		strarr_codes[3] = "Bxnxnx";
+//		strarr_codes[4] = "Bxnxnx";
+//		strarr_sentences[0] = "Banana";
+//		strarr_sentences[1] = "Banana";
+//		strarr_sentences[2] = "Banana";
+//		strarr_sentences[3] = "Banana";
+//		strarr_sentences[4] = "Banana";
 		
+		/**
+		 * @Richie
+		 * The for-loop below takes i words from wordBank and encryptedWordBank
+		 * and stores them in strarr_sentences and strarr_codes respectively.
+		 * 
+		 * Added print statements for now to show which words were stored.
+		 * 
+		 * Currently may store duplicate words (to be fixed later on)
+		 */
+		Random random = new Random();
+		/* Store (3) words and encryptedWords */
+		for (int i = 0; i < 3; i++) {
+			int index = random.nextInt(3);
+			
+			strarr_sentences[i] = wordBank[ index ];
+			strarr_codes[i] = encryptedWordBank[ index ];
+			System.out.println( strarr_sentences[i] );
+			System.out.println( strarr_codes[i]);
+		}
 	}
 	
 	/**
