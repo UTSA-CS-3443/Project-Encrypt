@@ -1,0 +1,53 @@
+W<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: rgb(65,105,225);">
+         <children>
+            <Button layoutX="167.0" layoutY="387.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Start" textAlignment="CENTER">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
+               </font>
+            </Button>
+            <Button layoutX="167.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Scores">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
+               </font>
+            </Button>
+            <Text layoutX="147.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCRYPT" textAlignment="CENTER" wrappingWidth="235.21875">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="54.0" />
+               </font>
+            </Text>
+            <Button layoutX="167.0" layoutY="443.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Level Select">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
+               </font>
+            </Button>
+            <Text layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors: Richard Azille, Connor Guerra, Eric Muniz, Andrew Ngo, Sai Nuka">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <Text layoutX="85.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROJECT" textAlignment="CENTER" wrappingWidth="235.21875">
+               <font>
+                  <Font name="Zapfino" size="22.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="166.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon-512@x.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
