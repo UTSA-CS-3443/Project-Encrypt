@@ -179,4 +179,8 @@ public class EncryptGame {
 		System.out.println("Actual Sentence: " + strarr_sentences[int_level] + "\n Your Sentence: " + strp_attemptSentence);
 		player.changeScore(int_score);
 	}
+	public void update(String s)
+	{
+		
+	}
 }
