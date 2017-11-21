@@ -1,5 +1,15 @@
 package core;
+import java.awt.TextField;
+import java.io.IOException;
 import java.util.*;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 /**
  * Workhorse class of the project, is responsible for running the game and keeping track of everything from scoring to actual interaction.
@@ -8,6 +18,15 @@ import java.util.*;
  *
  */
 public class EncryptGame {
+	
+	@FXML
+	private TextField Encryption;
+	
+	@FXML
+	private TextField Output;
+	
+	@FXML
+	private Button button;
 	
 	// @Richie
 	private String[] wordBank;
@@ -184,8 +203,31 @@ public class EncryptGame {
 		System.out.println("Actual Sentence: " + strarr_sentences[int_level] + "\n Your Sentence: " + strp_attemptSentence);
 		player.changeScore(int_score);
 	}
-	public void update(String s)
+	public void update(String s, Stage primaryStage) 
 	{
+		Parent root = null;
+		System.out.println(s);
+		if (s.equals("Start")) {
+			try {
+				root = FXMLLoader.load(getClass().getResource("/view/MutationView.fxml"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		else if (s.equals("Level Select")) {
+			try {
+				root = FXMLLoader.load(getClass().getResource("/view/LevelSelectView.fxml"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		primaryStage.setScene(new Scene(root, 480, 640));
+		primaryStage.show();
+		
+		
 		
 	}
 }

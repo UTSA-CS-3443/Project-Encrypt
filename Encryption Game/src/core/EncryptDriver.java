@@ -1,12 +1,13 @@
 package core;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
+import javafx.scene.control.*;
 /**
  * Simple driver class that runs the test version of the Encryption Game.
  * @author Connor Guerra
@@ -15,6 +16,10 @@ import javafx.stage.Stage;
 public class EncryptDriver extends Application{
 	
 	private static Stage stage;
+	@FXML
+	private Button StartButton;
+	@FXML
+	private Button LevelButton;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -28,9 +33,11 @@ public class EncryptDriver extends Application{
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		this.stage = primaryStage;
 		
 	}
+	
 	public static void main(String[] args){
 		launch(args);
 		EncryptGame game = new EncryptGame("Testificate");
