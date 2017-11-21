@@ -30,8 +30,13 @@ public class EncryptGame {
 		 * Added wordBank and encryptedWordBank. Each string in encyptedWordBank is associated with the string in wordBank that 
 		 * has the same index.
 		 */
-		wordBank = new String[] {"Interface", "Application", "Method"};
-		encryptedWordBank = new String[] {"Iqtgrvahg", "Awwlyfatyon", "Vgchnd"};
+		wordBank = new String[] {	"interface",		"application", 		"method", 		"strings", 		"synchronized", 
+									"thread", 		"java", 				"encryption", 	"abstract", 		"class",
+									"exception",		"collection",		"generics",		"dependency",	"integer"		};
+		
+		encryptedWordBank = new String[] {	"iqtgrvahg", 	"awwlyfatyon", 		"vgchnd",		"rsqhmfr",  		"flapuebavmrq",
+											"uisfbe",		"armr",				"rapelcgvba",	"pqhigpri",		"sbqii",
+											"fvafnrgml",		"lxuunlcrxw",		"trarevpf",		"qrcraqrapl",	"elpacan"		};
 		
 		strarr_sentences = new String[10];
 		strarr_codes = new String[10];
@@ -53,10 +58,10 @@ public class EncryptGame {
 		
 		/* Store (3) words and encryptedWords */
 		for (int i = 0; i < 3; i++) {
-			int index = random.nextInt(3);
+			int index = random.nextInt(wordBank.length);
 			/* Validate words to ensure duplicates are not allowed within the same game */
 			while (wordIndeces.contains(index)) {
-				index = random.nextInt(3);
+				index = random.nextInt(wordBank.length);
 			}
 			wordIndeces.add(index);
 			/* Store unencrypted words in strarr_sentences and encrypted words in strarr_codes */
