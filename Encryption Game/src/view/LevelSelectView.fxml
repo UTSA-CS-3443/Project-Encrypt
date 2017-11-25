@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="640.0" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.LevelSelectController">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: rgb(65,105,225);">
+      <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="490.0" style="-fx-background-color: rgb(65,105,225);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="152.0" layoutY="588.0" mnemonicParsing="false" style="-fx-background-color: rgb(255,255,51);" text="Back to Main Menu">
+            <Button layoutX="152.0" layoutY="588.0" mnemonicParsing="false" onAction="#handle" style="-fx-background-color: rgb(255,255,51);" text="Back to Main Menu">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="18.0" />
                </font>
@@ -20,10 +21,10 @@
                   <Font name="American Typewriter Semibold" size="54.0" />
                </font>
             </Text>
-            <Button contentDisplay="TOP" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 1" />
-            <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 2" />
-            <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 3" />
-            <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 4" />
+            <Button contentDisplay="TOP" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 1" />
+            <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 2" />
+            <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 3" />
+            <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 4" />
          </children>
       </Pane>
    </children>

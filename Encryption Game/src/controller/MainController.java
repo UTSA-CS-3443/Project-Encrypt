@@ -1,32 +1,30 @@
 package controller;
-import core.EncryptGame;
+
+import model.MainMenu;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+
 public class MainController implements EventHandler<ActionEvent> {
+
+	private MainMenu mainMenu;
+	private Stage newStage;
 	
-	private EncryptGame game;
-	
-	public MainController()
-	{
+	public MainController() {
+		// TODO Auto-generated constructor stub
 		super();
-		game = new EncryptGame("Player1");
+		this.mainMenu = new MainMenu();
 	}
-
-	@Override
-	public void handle(ActionEvent event)  {
-		try {
+	
+	/**
+	 * Change stage based on main menu selection
+	 */
+	public void handle(ActionEvent event) {
 		Button b = (Button) event.getSource();
-		Stage temp = (Stage) b.getScene().getWindow();
-		System.out.println(b.getText());
-		game.update(b.getText(), temp);
-		} catch (Exception e) {
-		e.printStackTrace();
-		}
+		this.newStage = (Stage) b.getScene().getWindow();
+		System.out.println( b.getText() );
+		this.mainMenu.changeMode(b.getText(), newStage);
 	}
-
 }
