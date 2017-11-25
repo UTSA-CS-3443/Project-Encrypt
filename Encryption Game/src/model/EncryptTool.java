@@ -1,4 +1,4 @@
-package core;
+package model;
 
 /**
  * Encryption tool, Static class that has various methods to mutate strings a number of different ways.
