@@ -12,6 +12,9 @@ public class GameController implements EventHandler<ActionEvent>{
 
 	@FXML
 	private Label currentWord;
+	
+	//@FXML 
+	//private Label shiftWord;
 	@FXML
 	private Label prompt;
 	private Game game;
@@ -32,12 +35,12 @@ public class GameController implements EventHandler<ActionEvent>{
 		}
 		
 		if (b.getText().equals("Substitution")) {
-			this.game.setChoice('B');
+			this.currentWord.setText(this.game.getSubSentence());
 			this.prompt.setText("Substituting!\nWhich letter would you like to replace?");
 		}
 		
 		if (b.getText().equals("Shift")) {
-			this.game.setChoice('H');
+			this.currentWord.setText(this.game.getShiftSentence());
 			this.prompt.setText("Shifting!\nHow many letters would you like to shift the word?");
 		}
 		
@@ -52,6 +55,8 @@ public class GameController implements EventHandler<ActionEvent>{
 		this.game.runGame();
 		
 		this.currentWord.setText( this.game.getSentence() );
+		
+		this.currentWord.setText( this.game.getShiftSentence() );
 		
 		// If user chose to return to the main menu
 		if (b.getText().equals("Back to Main Menu")) {

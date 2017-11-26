@@ -19,6 +19,7 @@ public class Game {
 	private int int_level, int_score;
 	private EncryptPlayer player;
 	private String str_currentSentence;
+	private String str_mutatedSentence;
 	private Scanner scan;
 	private char choice;
 	
@@ -176,6 +177,12 @@ public class Game {
 		return str_mutatedSentence;
 	}
 	
+	public String getShiftSentence() {
+		return str_mutatedSentence;
+	}
+	public void setShiftSentence(String sentence) {
+		this.str_mutatedSentence = sentence;
+	}
 	/**
 	 * Provides the interface information for the substitution option when selected by the player. Calls the EncryptTool class to actually do the work.
 	 * @return Mutated string that has been substituted by the EncryptTool.
@@ -195,6 +202,12 @@ public class Game {
 		return str_mutatedSentence;
 	}
 	
+	public String getSubSentence() {
+		return str_mutatedSentence;
+	}
+	public void setSubSentence(String sentence) {
+		this.str_mutatedSentence = sentence;
+	}
 	/**
 	 * Scores the current sentences as modified by the player, giving 5 points per matched character. The method then adds the points gained to the 
 	 * player object's score.
