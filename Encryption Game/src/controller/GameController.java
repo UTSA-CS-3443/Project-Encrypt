@@ -59,7 +59,7 @@ public class GameController implements EventHandler<ActionEvent>{
 		this.currentWord.setText( this.game.getShiftSentence() );
 		
 		// If user chose to return to the main menu
-		if (b.getText().equals("Back to Main Menu")) {
+		if (b.getText().equals("Quit to Main Menu")) {
 			Stage newStage = (Stage) b.getScene().getWindow();
 			this.game.backToMainMenu(newStage);
 		}
