@@ -36,7 +36,7 @@
             </TitledPane>
             <TextField alignment="CENTER" layoutX="37.0" layoutY="171.0" prefHeight="67.0" prefWidth="405.0" />
             <TextField alignment="CENTER" layoutX="37.0" layoutY="315.0" prefHeight="67.0" prefWidth="405.0" />
-            <Text layoutX="154.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OUTPUT">
+            <Text layoutX="154.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROMPT">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="46.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Font name="Apple SD GothicNeo ExtraBold" size="46.0" />
                </font>
             </Text>
-            <Label fx:id="output" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="315.0" prefHeight="67.0" prefWidth="405.0" />
+            <Label fx:id="prompt" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="315.0" prefHeight="67.0" prefWidth="405.0" text="Welcome to Project Encrypt! Press START to begin!" />
             <Label fx:id="currentWord" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="171.0" prefHeight="67.0" prefWidth="405.0" />
             <TextField alignment="CENTER" layoutX="196.0" layoutY="33.0" prefHeight="42.0" prefWidth="99.0" text="START" />
             <Button layoutX="196.0" layoutY="33.0" mnemonicParsing="false" onAction="#handle" opacity="0.0" prefHeight="42.0" prefWidth="99.0" text="START" />

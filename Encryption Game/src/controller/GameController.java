@@ -13,7 +13,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	@FXML
 	private Label currentWord;
 	@FXML
-	private Label output;
+	private Label prompt;
 	private Game game;
 	
 	public GameController() {
@@ -26,24 +26,32 @@ public class GameController implements EventHandler<ActionEvent>{
 		Button b = (Button)event.getSource();
 		System.out.println( b.getText() );
 		
-		// Display current state of encrypted word
-		this.currentWord.setText( this.game.getSentence() );
-		
 		if (b.getText().equals("START")) {
-			this.game.runGame();
+			this.currentWord.setText( this.game.getSentence() );
+			this.prompt.setText( "Choose a Mutation, Check Your Answer, \nor Quit to Main Menu" );
 		}
 		
 		if (b.getText().equals("Substitution")) {
-			
+			this.game.setChoice('B');
+			this.prompt.setText("Substituting!\nWhich letter would you like to replace?");
 		}
 		
 		if (b.getText().equals("Shift")) {
-			
+			this.game.setChoice('H');
+			this.prompt.setText("Shifting!\nHow many letters would you like to shift the word?");
 		}
 		
 		if (b.getText().equals("Check Answer")) {
-			
+			this.game.setChoice('G');
 		}
+		
+		if (b.getText().equals("Back to Main Menu")) {
+			this.game.setChoice('Q');
+		}
+		
+		this.game.runGame();
+		
+		this.currentWord.setText( this.game.getSentence() );
 		
 		// If user chose to return to the main menu
 		if (b.getText().equals("Back to Main Menu")) {

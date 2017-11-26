@@ -20,16 +20,16 @@ public class Game {
 	private EncryptPlayer player;
 	private String str_currentSentence;
 	private Scanner scan;
+	private char choice;
 	
 	public Game(String strp_playerName) {
-		// TODO Auto-generated constructor stub
 		wordBank = new String[] {	"interface",		"application", 		"method", 		"strings", 		"synchronized", 
 									"thread", 		"java", 				"encryption", 	"abstract", 		"class",
 									"exception",		"collection",		"generics",		"dependency",	"integer"		};
 
 		encryptedWordBank = new String[] {	"iqtgrvahg", 	"awwlyfatyon", 		"vgchnd",		"rsqhmfr",  		"flapuebavmrq",
 											"uisfbe",		"armr",				"rapelcgvba",	"pqhigpri",		"sbqii",
-											"fvafnrgml",		"lxuunlcrxw",		"trarevpf",		"qrcraqrapl",	"elpacan"		};
+											"fvafnrgml",		"lxuunlcrxw",		"trarevpf",		"qrcraqrapl",	"ejpacan"		};
 
 		strarr_sentences = new String[10];
 		strarr_codes = new String[10];
@@ -39,9 +39,9 @@ public class Game {
 		int_level = 0;
 		int_score = 0;
 		player = new EncryptPlayer(strp_playerName);
-		System.out.println("strarr_codes[int_level] = " + strarr_codes[int_level]);
 		str_currentSentence = strarr_codes[int_level];
 		scan = new Scanner(System.in);
+		choice = ' ';
 	}
 	
 	/**
@@ -70,12 +70,17 @@ public class Game {
 		}
 	}
 	
-	/**
-	 * Returns the current state of the encrypted string 
-	 * @return
-	 */
 	public String getSentence() {
 		return str_currentSentence;
+	}
+	public void setSentence(String sentence) {
+		this.str_currentSentence = sentence;
+	}
+	public char getChoice() {
+		return this.choice;
+	}
+	public void setChoice(char choice) {
+		this.choice = choice;
 	}
 	
 	/**
@@ -84,47 +89,76 @@ public class Game {
 	 * This method is responsible for closing the scanner at the end of the game, so take care when attempting to access the 
 	 * scanner once this method has run.
 	 */
-	public void runGame(){
-		// selectWords();
-		char chr_choice = ' ';
-		System.out.println("Welcome to the Encryption Project!");
-		str_currentSentence = strarr_codes[int_level];
-		/* Run game until user chooses to quit or until no more encrypted words remain */
-		while(chr_choice != 'q' && chr_choice != 'Q' && strarr_codes[int_level] != null){
-			System.out.println("Current word: " + str_currentSentence);
-			System.out.println("Please press \'B\' for Su(b)stitution.");
-			System.out.println("Please press \'H\' to S(h)ift the letters.");
-			System.out.println("Please press \'G\' to (G)rade your sentence and move on.");
-			System.out.println("Please press \'Q\' to (Q)uit.");
-			System.out.print("Please enter a choice:");
-			chr_choice = scan.next().charAt(0);
-			
-			switch(chr_choice){
-				case 'b':
-				case 'B':
-					str_currentSentence = substituteLetter();
-					break;
-				case 'h':
-				case 'H':
-					str_currentSentence = shiftSentence();
-					break;
-				case 'g':
-				case 'G':
-					scoreSentence(str_currentSentence);
-					int_level++;
-					str_currentSentence = strarr_codes[int_level];
-					int_score = 0;
-					break;
-				case 'q':
-				case 'Q':
-					break;
-				default:
-					System.out.println("Sorry, I didn\'t understand that! Please enter a valid command.");
-					break;
-			}
+//	public void runGame(){
+//		char chr_choice = choice;
+//		// str_currentSentence = strarr_codes[int_level];
+//		/* Run game until user chooses to quit or until no more encrypted words remain */
+//		while(chr_choice != 'q' && chr_choice != 'Q' && strarr_codes[int_level] != null){
+//			// System.out.println("Current word: " + str_currentSentence);
+//			System.out.println("Current word: " + getSentence() );
+//			System.out.println("Please press \'B\' for Su(b)stitution.");
+//			System.out.println("Please press \'H\' to S(h)ift the letters.");
+//			System.out.println("Please press \'G\' to (G)rade your sentence and move on.");
+//			System.out.println("Please press \'Q\' to (Q)uit.");
+//			System.out.print("Please enter a choice:");
+//			chr_choice = scan.next().charAt(0);
+//			
+//			
+//			switch(chr_choice){
+//				case 'b':
+//				case 'B':
+//					// str_currentSentence = substituteLetter();
+//					setSentence( substituteLetter() );
+//					break;
+//				case 'h':
+//				case 'H':
+//					// str_currentSentence = shiftSentence();
+//					setSentence( shiftSentence() );
+//					break;
+//				case 'g':
+//				case 'G':
+//					scoreSentence(str_currentSentence);
+//					int_level++;
+//					// str_currentSentence = strarr_codes[int_level];
+//					setSentence( strarr_codes[int_level] );
+//					int_score = 0;
+//					break;
+//				case 'q':
+//				case 'Q':
+//					break;
+//				default:
+//					System.out.println("Sorry, I didn\'t understand that! Please enter a valid command.");
+//					break;
+//			}
+//		}
+//		System.out.println("Game over. Goodbye!");
+//		scan.close();
+//	}
+	public void runGame() {
+		char chr_choice = getChoice();
+		switch(chr_choice){
+			case 'b':
+			case 'B':
+				setSentence( substituteLetter() );
+				break;
+			case 'h':
+			case 'H':
+				setSentence( shiftSentence() );
+				break;
+			case 'g':
+			case 'G':
+				scoreSentence(str_currentSentence);
+				int_level++;
+				setSentence( strarr_codes[int_level] );
+				int_score = 0;
+				break;
+			case 'q':
+			case 'Q':
+				System.out.println("Game over. Goodbye!");
+				break;
+			default: // Start game
+				break;
 		}
-		System.out.println("Game over. Goodbye!");
-		scan.close();
 	}
 	
 	/**
@@ -147,6 +181,8 @@ public class Game {
 	 * @return Mutated string that has been substituted by the EncryptTool.
 	 */
 	public String substituteLetter(){
+		
+		
 		System.out.println("Substituting!!");
 		System.out.println("Which letter would you like to replace?");
 		System.out.print("Replaced Letter:");

@@ -37,12 +37,12 @@ public class EncryptTool {
 	 * @param strp_sentence Given string to be shifted
 	 * @return Mutated string that has been shifted by the given amount.
 	 */
-	public static String shiftTool(int intp_shift, String strp_sentence){
+	public static String shiftTool(int intp_shift, String word){
 		String str_mutated = "";
 		int i = 0;
 		char chr_current =' ';
-		while(i < strp_sentence.length()){
-			chr_current = (char) (strp_sentence.charAt(i) + intp_shift);
+		while(i < word.length()){
+			chr_current = (char) ( 97 + ( ( word.charAt(i) - 97  - intp_shift ) % 26 ) );
 			str_mutated = str_mutated + chr_current;
 			i++;
 		}
