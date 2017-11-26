@@ -28,7 +28,7 @@ public class GameController implements EventHandler<ActionEvent>{
 		
 		if (b.getText().equals("START")) {
 			this.currentWord.setText( this.game.getSentence() );
-			this.prompt.setText( "Choose a Mutation, Check Your Answer, \nor Quit to Main Menu" );
+			this.prompt.setText( "Choose a Substitution, Check Your Answer, \nor Quit to Main Menu" );
 		}
 		
 		if (b.getText().equals("Substitution")) {
@@ -45,7 +45,7 @@ public class GameController implements EventHandler<ActionEvent>{
 			this.game.setChoice('G');
 		}
 		
-		if (b.getText().equals("Back to Main Menu")) {
+		if (b.getText().equals("Quit to Main Menu")) {
 			this.game.setChoice('Q');
 		}
 		
