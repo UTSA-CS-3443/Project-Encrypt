@@ -233,6 +233,7 @@ public class Game {
 		player.changeScore(int_score);
 	}
 
+
 	public void backToMainMenu(Stage primaryStage) {
 		/* If user chooses to return to main menu */
 		try {

@@ -63,5 +63,7 @@ public class GameController implements EventHandler<ActionEvent>{
 			Stage newStage = (Stage) b.getScene().getWindow();
 			this.game.backToMainMenu(newStage);
 		}
+		
+		
 	}
 }
