@@ -19,7 +19,7 @@
                               <Button mnemonicParsing="false" onAction="#handle" prefHeight="98.0" prefWidth="203.0" text="Substitution" />
                               <Button mnemonicParsing="false" onAction="#handle" prefHeight="94.0" prefWidth="203.0" text="Check Answer" GridPane.rowIndex="1" />
                               <Button mnemonicParsing="false" onAction="#handle" prefHeight="103.0" prefWidth="202.0" text="Shift" GridPane.columnIndex="1" />
-                              <Button mnemonicParsing="false" onAction="#handle" prefHeight="91.0" prefWidth="202.0" text="Back to Main Menu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button mnemonicParsing="false" onAction="#handle" prefHeight="91.0" prefWidth="202.0" text="Quit to Main Menu" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
