@@ -19,6 +19,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	private TextField input;				// TextField for receiving user input
 	private Game game;					// Game instance
 	private char choice;					// Single character indicating menu choice
+	private boolean start;
 	private boolean acceptingInput;		// Indicates that program is ready to accept input
 	private boolean subPart1;			// Indicates that program is ready to accept letter to be replaced
 	private boolean subPart2;			// Indicates that program is ready to accept replacement letter
@@ -28,6 +29,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	public GameController() {
 		super();
 		this.game = new Game("Player 1");
+		this.start = false;
 		this.acceptingInput = false;
 		this.subPart1 = false;
 		this.subPart2 = false;
@@ -78,29 +80,33 @@ public class GameController implements EventHandler<ActionEvent>{
 		}
 		/* User has chosen to start the current game */
 		if (b.getText().equals("START")) {
+			this.start = true;
 			this.currentWord.setText( this.game.getSentence() );
 			this.prompt.setText( "Substitute, Shift, Check Your Answer, \nor Quit to Main Menu" );
 		}
-		/* User has chosen to substitute */
-		if (b.getText().equals("Substitution")) {
-			setChoice('B');
-			this.currentWord.setText(this.game.getSentence());
-			this.prompt.setText("Substituting!\nEnter a letter (a-z) to replace:");
-			this.subPart1 = true;
-			this.acceptingInput = true;
-		}
-		/* User has chosen to shift */
-		if (b.getText().equals("Shift")) {
-			setChoice('H');
-			this.currentWord.setText(this.game.getSentence());
-			this.prompt.setText("Shifting!\nEnter a shift value (0-26) below");
-			this.acceptingInput = true;
-		}
-		/* User has chosen to check answer */
-		if (b.getText().equals("Check Answer")) {
-			this.game.setChoice('G');
-			this.game.runGame('G');
-			this.currentWord.setText( this.game.getSentence() );
+		/* Only allow substitutions, shifts, and answer checks after user has chosen to start the game */
+		if (start) {
+			/* User has chosen to substitute */
+			if (b.getText().equals("Substitution")) {
+				setChoice('B');
+				this.currentWord.setText(this.game.getSentence());
+				this.prompt.setText("Substituting!\nEnter a letter (a-z) to replace:");
+				this.subPart1 = true;
+				this.acceptingInput = true;
+			}
+			/* User has chosen to shift */
+			if (b.getText().equals("Shift")) {
+				setChoice('H');
+				this.currentWord.setText(this.game.getSentence());
+				this.prompt.setText("Shifting!\nEnter a shift value (0-26) below");
+				this.acceptingInput = true;
+			}
+			/* User has chosen to check answer */
+			if (b.getText().equals("Check Answer")) {
+				this.game.setChoice('G');
+				this.game.runGame('G');
+				this.currentWord.setText( this.game.getSentence() );
+			}
 		}
 		/* User has chosen to return to the main menu */
 		if (b.getText().equals("Quit to Main Menu")) {
@@ -108,6 +114,6 @@ public class GameController implements EventHandler<ActionEvent>{
 			this.game.setChoice('Q');
 			Stage newStage = (Stage) b.getScene().getWindow();
 			this.game.backToMainMenu(newStage);
-		}		
+		}	
 	}
 }
