@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -12,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+<AnchorPane prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
    <children>
       <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="490.0" style="-fx-background-color: rgb(65,105,225);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" layoutX="39.0" layoutY="411.0" prefHeight="208.0" prefWidth="405.0" text="Mutations">
+            <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" layoutX="39.0" layoutY="428.0" prefHeight="208.0" prefWidth="405.0" text="Mutations">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="403.0">
                      <children>
@@ -40,22 +44,23 @@
                   </AnchorPane>
                </content>
             </TitledPane>
-            <TextField alignment="CENTER" layoutX="37.0" layoutY="171.0" prefHeight="67.0" prefWidth="405.0" />
-            <TextField alignment="CENTER" layoutX="37.0" layoutY="315.0" prefHeight="67.0" prefWidth="405.0" />
-            <Text layoutX="154.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROMPT">
+            <TextField alignment="CENTER" layoutX="37.0" layoutY="115.0" prefHeight="67.0" prefWidth="405.0" />
+            <TextField alignment="CENTER" layoutX="39.0" layoutY="240.0" prefHeight="67.0" prefWidth="405.0" />
+            <Text layoutX="151.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROMPT">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="46.0" />
                </font>
             </Text>
-            <Text layoutX="105.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCRYPTION">
+            <Text layoutX="106.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCRYPTION">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="46.0" />
                </font>
             </Text>
-            <Label fx:id="prompt" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="315.0" prefHeight="67.0" prefWidth="405.0" text="Welcome to Project Encrypt! Press START to begin!" />
-            <Label fx:id="currentWord" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="171.0" prefHeight="67.0" prefWidth="405.0" />
-            <TextField alignment="CENTER" layoutX="196.0" layoutY="33.0" prefHeight="42.0" prefWidth="99.0" text="START" />
-            <Button layoutX="196.0" layoutY="33.0" mnemonicParsing="false" onAction="#handle" opacity="0.0" prefHeight="42.0" prefWidth="99.0" text="START" />
+            <Label fx:id="prompt" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="240.0" prefHeight="67.0" prefWidth="405.0" text="Press START to begin!" />
+            <Button layoutX="196.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" prefHeight="42.0" prefWidth="99.0" text="START" />
+            <Label fx:id="currentWord" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="115.0" prefHeight="67.0" prefWidth="405.0" text="Welcome to Project Encrypt!" />
+            <TextField fx:id="input" layoutX="162.0" layoutY="358.0" onAction="#handle" />
+            <Button layoutX="348.0" layoutY="358.0" mnemonicParsing="false" onAction="#handle" text="Submit" />
          </children>
       </Pane>
    </children>

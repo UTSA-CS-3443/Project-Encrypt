@@ -12,26 +12,32 @@ import javafx.stage.Stage;
 
 public class Game {
 	
-	private String[] wordBank;
-	private String[] encryptedWordBank;
-	private String[] strarr_sentences;
-	private String[] strarr_codes;
-	private int int_level, int_score;
-	private EncryptPlayer player;
-	private String str_currentSentence;
-	private String str_mutatedSentence;
-	private Scanner scan;
+	private String[] wordBank;			// Word bank of string values without encryption
+	private String[] encryptedWordBank;	// Word bank of string values with encryption
+	private String[] strarr_sentences;	// Words used by specific game
+	private String[] strarr_codes; 		// Encrypted words used by specific game
+	private int int_level;				// Index of current word
+	private int int_score;				// Score determined by choosing to grade attempt
+	private EncryptPlayer player;		// Current player
+	private String str_currentSentence; 	// Current word
+	private String str_mutatedSentence; 	// Current word after mutation, used to update str_currentSentence
 	private char choice;
 	
 	public Game(String strp_playerName) {
-		wordBank = new String[] {	"interface",		"application", 		"method", 		"strings", 		"synchronized", 
-									"thread", 		"java", 				"encryption", 	"abstract", 		"class",
-									"exception",		"collection",		"generics",		"dependency",	"integer"		};
+//		wordBank = new String[] {	"interface",		"application", 		"method", 		"strings", 		"synchronized", 
+//									"thread", 		"java", 				"encryption", 	"abstract", 		"class",
+//									"exception",		"collection",		"generics",		"dependency",	"integer"		};
+//
+//		encryptedWordBank = new String[] {	"iqtgrvahg", 	"awwlyfatyon", 		"vgchnd",		"rsqhmfr",  		"flapuebavmrq",
+//											"uisfbe",		"jxvx",				"rapelcgvba",	"pqhigpri",		"sbqii",
+//											"fvafnrgml",		"lxuunlcrxw",		"trarevpf",		"qrcraqrapl",	"ejpacan"		};
 
-		encryptedWordBank = new String[] {	"iqtgrvahg", 	"awwlyfatyon", 		"vgchnd",		"rsqhmfr",  		"flapuebavmrq",
-											"uisfbe",		"armr",				"rapelcgvba",	"pqhigpri",		"sbqii",
-											"fvafnrgml",		"lxuunlcrxw",		"trarevpf",		"qrcraqrapl",	"ejpacan"		};
+		wordBank = new String[] {	"class",		"application", 		"java"};
 
+		// To test sbqii, shift by 10. Other two test strings can be solved by simple substitutions.
+		encryptedWordBank = new String[] {	"sbqii", 	"awwlyfatyon",		"jxvx"}; 
+		
+		
 		strarr_sentences = new String[10];
 		strarr_codes = new String[10];
 
@@ -41,7 +47,6 @@ public class Game {
 		int_score = 0;
 		player = new EncryptPlayer(strp_playerName);
 		str_currentSentence = strarr_codes[int_level];
-		scan = new Scanner(System.in);
 		choice = ' ';
 	}
 	
@@ -72,7 +77,7 @@ public class Game {
 	}
 	
 	public String getSentence() {
-		return str_currentSentence;
+		return this.str_currentSentence;
 	}
 	public void setSentence(String sentence) {
 		this.str_currentSentence = sentence;
@@ -90,76 +95,28 @@ public class Game {
 	 * This method is responsible for closing the scanner at the end of the game, so take care when attempting to access the 
 	 * scanner once this method has run.
 	 */
-//	public void runGame(){
-//		char chr_choice = choice;
-//		// str_currentSentence = strarr_codes[int_level];
-//		/* Run game until user chooses to quit or until no more encrypted words remain */
-//		while(chr_choice != 'q' && chr_choice != 'Q' && strarr_codes[int_level] != null){
-//			// System.out.println("Current word: " + str_currentSentence);
-//			System.out.println("Current word: " + getSentence() );
-//			System.out.println("Please press \'B\' for Su(b)stitution.");
-//			System.out.println("Please press \'H\' to S(h)ift the letters.");
-//			System.out.println("Please press \'G\' to (G)rade your sentence and move on.");
-//			System.out.println("Please press \'Q\' to (Q)uit.");
-//			System.out.print("Please enter a choice:");
-//			chr_choice = scan.next().charAt(0);
-//			
-//			
-//			switch(chr_choice){
-//				case 'b':
-//				case 'B':
-//					// str_currentSentence = substituteLetter();
-//					setSentence( substituteLetter() );
-//					break;
-//				case 'h':
-//				case 'H':
-//					// str_currentSentence = shiftSentence();
-//					setSentence( shiftSentence() );
-//					break;
-//				case 'g':
-//				case 'G':
-//					scoreSentence(str_currentSentence);
-//					int_level++;
-//					// str_currentSentence = strarr_codes[int_level];
-//					setSentence( strarr_codes[int_level] );
-//					int_score = 0;
-//					break;
-//				case 'q':
-//				case 'Q':
-//					break;
-//				default:
-//					System.out.println("Sorry, I didn\'t understand that! Please enter a valid command.");
-//					break;
-//			}
-//		}
-//		System.out.println("Game over. Goodbye!");
-//		scan.close();
-//	}
-	public void runGame() {
-		char chr_choice = getChoice();
-		switch(chr_choice){
-			case 'b':
-			case 'B':
-				setSentence( substituteLetter() );
-				break;
-			case 'h':
-			case 'H':
-				setSentence( shiftSentence() );
-				break;
-			case 'g':
-			case 'G':
-				scoreSentence(str_currentSentence);
-				int_level++;
-				setSentence( strarr_codes[int_level] );
-				int_score = 0;
-				break;
-			case 'q':
-			case 'Q':
-				System.out.println("Game over. Goodbye!");
-				break;
-			default: // Start game
-				break;
+	public void runGame(char choice) {
+		if (strarr_codes[int_level] != null) {
+			switch(choice){
+				case 'B': // Substitution
+					break;
+				case 'H': // Shift
+					break;
+				case 'G': // Grade
+					scoreSentence(str_currentSentence);
+					int_level++;
+					setSentence( strarr_codes[int_level] );
+					int_score = 0;
+					break;
+				case 'Q': // Quit
+					System.out.println("Game over. Goodbye!");
+					break;
+				default: // Start game
+					break;
+			}
 		}
+		else 
+			System.out.println("No more words to decrypt. Game over.");
 	}
 	
 	/**
@@ -167,47 +124,24 @@ public class Game {
 	 * Take note that this actually shifts backwards instead of forwards. Also note that this method will only shift by a maximum of 25 characters at a time.
 	 * @return Mutated string that has been shifted by the EncryptTool.
 	 */
-	public String shiftSentence(){
-		System.out.println("Shifting!");
-		System.out.println("How many letters would you like to shift the word?");
-		System.out.print("Shift distance: ");
-		int int_shift = scan.nextInt() % 26;
+	public String shiftSentence(String shiftValue){
+		// int int_shift = (shiftValue.charAt(0) - '0') % 26;
+		int int_shift = (Integer.parseInt(shiftValue)) % 26;
 		String str_mutatedSentence = EncryptTool.shiftTool(-int_shift, str_currentSentence);
-		System.out.println("Current Sentence is now: " + str_mutatedSentence);
+		setSentence(str_mutatedSentence);
 		return str_mutatedSentence;
 	}
 	
-	public String getShiftSentence() {
-		return str_mutatedSentence;
-	}
-	public void setShiftSentence(String sentence) {
-		this.str_mutatedSentence = sentence;
-	}
 	/**
 	 * Provides the interface information for the substitution option when selected by the player. Calls the EncryptTool class to actually do the work.
 	 * @return Mutated string that has been substituted by the EncryptTool.
 	 */
-	public String substituteLetter(){
-		
-		
-		System.out.println("Substituting!!");
-		System.out.println("Which letter would you like to replace?");
-		System.out.print("Replaced Letter:");
-		char chr_replacedLetter = scan.next().charAt(0);
-		System.out.println("What do you want to replace that letter with?");
-		System.out.print("Replacement Letter:");
-		char chr_replacementLetter = scan.next().charAt(0);
-		String str_mutatedSentence = EncryptTool.substitutionTool(chr_replacedLetter, chr_replacementLetter, str_currentSentence);
-		System.out.println("Current Sentence is now: " + str_mutatedSentence);
+	public String substituteLetter(char replacedLetter, char replacementLetter){
+		String str_mutatedSentence = EncryptTool.substitutionTool(replacedLetter, replacementLetter, str_currentSentence);
+		setSentence(str_mutatedSentence);
 		return str_mutatedSentence;
 	}
-	
-	public String getSubSentence() {
-		return str_mutatedSentence;
-	}
-	public void setSubSentence(String sentence) {
-		this.str_mutatedSentence = sentence;
-	}
+
 	/**
 	 * Scores the current sentences as modified by the player, giving 5 points per matched character. The method then adds the points gained to the 
 	 * player object's score.
