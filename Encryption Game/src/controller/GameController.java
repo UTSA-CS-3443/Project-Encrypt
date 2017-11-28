@@ -109,6 +109,8 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has chosen to check answer */
 			if (b.getText().equals("Check Answer")) {
+				if ( this.game.getIndex() >= 2 )
+					this.prompt.setText( "No More Words to Decrypt. Game Over" );
 				this.game.setChoice('G');
 				this.game.runGame('G');
 				this.currentWord.setText( this.game.getSentence() );

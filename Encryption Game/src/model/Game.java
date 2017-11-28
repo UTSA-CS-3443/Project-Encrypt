@@ -39,6 +39,10 @@ public class Game {
 		this.choice = choice;
 	}
 	
+	public int getIndex() {
+		return this.wordIndex;
+	}
+	
 	/**
 	 * Method that runs the game. Runs a while loop that breaks when the player selects the quit option 'Q' when prompted.
 	 * Prints out a menu (could probably be put in a method) as well as calls selected methods when the player makes a choice.
@@ -46,7 +50,7 @@ public class Game {
 	 * scanner once this method has run.
 	 */
 	public void runGame(char choice) {
-		if (encryptedBank.getWord(wordIndex) != null) {
+		if (wordIndex < 3) {
 			switch(choice){
 				case 'B': // Substitution
 					break;
@@ -55,7 +59,8 @@ public class Game {
 				case 'G': // Grade
 					scoreSentence(str_currentSentence);
 					wordIndex++;
-					setSentence( encryptedBank.getWord(wordIndex));
+					if (wordIndex <= 2)
+						setSentence( encryptedBank.getWord(wordIndex));
 					int_score = 0;
 					break;
 				case 'Q': // Quit
@@ -67,6 +72,8 @@ public class Game {
 		}
 		else 
 			System.out.println("No more words to decrypt. Game over.");
+		
+		System.out.println("wordWIndex = " + getIndex() );
 	}
 	
 	/**
@@ -111,7 +118,7 @@ public class Game {
 			}
 		}
 		System.out.println("You scored " + int_score + " points!");
-		System.out.println("Actual Sentence: " + wordBank.getWord(wordIndex) + "\n Your Sentence: " + strp_attemptSentence);
+		System.out.println("Actual Word: " + wordBank.getWord(wordIndex) + "\n Your Word: " + strp_attemptSentence);
 		player.changeScore(int_score);
 	}
 
