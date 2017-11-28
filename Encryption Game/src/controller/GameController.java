@@ -25,15 +25,21 @@ public class GameController implements EventHandler<ActionEvent>{
 	private boolean subPart2;			// Indicates that program is ready to accept replacement letter
 	private char replacementLetter;		// Letter in currentWord to be replaced
 	private char replacedLetter;			// Letter to replace replacementLetter in currentWord
+	private int level;					// Game level selected by user
 	
 	public GameController() {
 		super();
-		this.game = new Game("Player 1", 1);	// Level parameter currently hardcoded to 1
+		// this.game = new Game("Player 1", level);	
 		this.start = false;
 		this.acceptingInput = false;
 		this.subPart1 = false;
 		this.subPart2 = false;
 		this.choice = ' ';
+	}
+	
+	public void setLevel(int level) {
+		// this.level = level;
+		this.game = new Game("Player 1", level);
 	}
 	
 	public void setChoice(char choice) {
