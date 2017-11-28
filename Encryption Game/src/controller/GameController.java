@@ -28,7 +28,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	
 	public GameController() {
 		super();
-		this.game = new Game("Player 1");
+		this.game = new Game("Player 1", 1);	// Level parameter currently hardcoded to 1
 		this.start = false;
 		this.acceptingInput = false;
 		this.subPart1 = false;
