@@ -1,5 +1,6 @@
 package model;
 
+import controller.GameController;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -16,7 +17,11 @@ public class MainMenu {
 			Parent root;
 			// Determine which FXML to load from main menu selection
 			if (selection.equals("Start")) {
-				root = FXMLLoader.load(getClass().getResource("/view/GameView.fxml"));
+				// Load Level 1 by default 
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GameView.fxml"));
+				root = (Parent) loader.load();
+				GameController controller = loader.getController();
+				controller.setLevel(1);
 				primaryStage .setTitle("Project Encrypt");
 			} else if (selection.equals("Level Select")) {
 				root = FXMLLoader.load(getClass().getResource("/view/LevelSelectView.fxml"));

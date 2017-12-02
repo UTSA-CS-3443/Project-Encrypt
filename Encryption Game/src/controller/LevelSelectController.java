@@ -11,18 +11,31 @@ public class LevelSelectController implements EventHandler<ActionEvent>{
 	private Level level;
 	
 	public LevelSelectController() {
-		// TODO Auto-generated constructor stub
 		super();
 		this.level = new Level();
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
 		Button b = (Button) event.getSource();
 		System.out.println( b.getText() );
+		
+		Stage newStage = (Stage) b.getScene().getWindow();
+		
+		if (b.getText().equals("Level 1")) {
+			this.level.loadLevel(newStage, 1);
+		}
+		if (b.getText().equals("Level 2")) {
+			this.level.loadLevel(newStage, 2);
+		}
+		if (b.getText().equals("Level 3")) {
+			this.level.loadLevel(newStage, 3);
+		}
+		if (b.getText().equals("Level 4")) {
+			this.level.loadLevel(newStage, 4);
+		}
+		
 		if (b.getText().equals("Back to Main Menu")) {
-			Stage newStage = (Stage) b.getScene().getWindow();
 			this.level.backToMainMenu(newStage);
 		}
 		if(b.getText().equals("Level 1")) 
