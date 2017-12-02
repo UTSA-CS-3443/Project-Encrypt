@@ -13,7 +13,7 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	/*@FXML
 	private Label score1;
 	@FXML
-	private Label score2;
+	private Label score2; 
 	@FXML
 	private Label score3;
 	@FXML
