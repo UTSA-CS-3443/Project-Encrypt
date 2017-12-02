@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.GameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,11 +22,18 @@ public class Scores {
 	 * @param score
 	 * @return
 	 */
-	public String getScore(int score) {
-		if (this.scores.get(score) == null)
-			return "Score" + score;
-		else 
-			return this.scores.get(score);
+	public void LoadScore(Stage primaryStage, int level) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HighScoreView.fxml"));
+			Parent root = (Parent) loader.load();
+			GameController controller = loader.getController();
+			controller.setLevel(level);
+			primaryStage.setScene(new Scene(root, 480, 640));
+			primaryStage.setTitle("Project Encrypt");
+			primaryStage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void backToMainMenu(Stage primaryStage) {

@@ -38,18 +38,6 @@ public class LevelSelectController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Back to Main Menu")) {
 			this.level.backToMainMenu(newStage);
 		}
-		if(b.getText().equals("Level 1")) 
-		{
-		}
-		if(b.getText().equals("Level 2"))
-		{
-		}
-		if(b.getText().equals("Level 3"))
-		{
-		}
-		if(b.getText().equals("Level 4"))
-		{
-		}
 	}
 
 }
