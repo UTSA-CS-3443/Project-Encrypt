@@ -1,1 +1,5 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@font face
+{
+	-fx-font-family: 'Apple SD GothicNeo ExtraBold';
+	src: url('view/AppleSDGothicNeo.ttc');
+}

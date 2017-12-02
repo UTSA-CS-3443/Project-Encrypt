@@ -1,5 +1,4 @@
-/controller/
-/core/
-/view/
 /application/
+/controller/
 /model/
+/view/
