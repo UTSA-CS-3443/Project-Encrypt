@@ -26,6 +26,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	private char replacementLetter;		// Letter in currentWord to be replaced
 	private char replacedLetter;			// Letter to replace replacementLetter in currentWord
 	private int level;					// Game level selected by user
+	private String originalEncryption;	// Original encryption of currentWord
 	
 	public GameController() {
 		super();
@@ -88,7 +89,13 @@ public class GameController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("START")) {
 			this.start = true;
 			this.currentWord.setText( this.game.getSentence() );
+			this.originalEncryption = this.game.getSentence();
 			this.prompt.setText( "Substitute, Shift, Check Your Answer, \nor Quit to Main Menu" );
+		}
+		/* User has chosen to reset the current word to its original encrypted form */
+		if (b.getText().equals("Reset Encryption")) {
+			this.currentWord.setText( this.originalEncryption );
+			this.game.setSentence( originalEncryption );
 		}
 		/* Only allow substitutions, shifts, and answer checks after user has chosen to start the game */
 		if (start) {
@@ -114,6 +121,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.game.setChoice('G');
 				this.game.runGame('G');
 				this.currentWord.setText( this.game.getSentence() );
+				this.originalEncryption = this.game.getSentence();
 			}
 		}
 		/* User has chosen to return to the main menu */

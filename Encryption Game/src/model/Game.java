@@ -72,8 +72,6 @@ public class Game {
 		}
 		else 
 			System.out.println("No more words to decrypt. Game over.");
-		
-		System.out.println("wordWIndex = " + getIndex() );
 	}
 	
 	/**
