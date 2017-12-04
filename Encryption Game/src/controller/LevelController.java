@@ -6,11 +6,11 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.Level;
 
-public class LevelSelectController implements EventHandler<ActionEvent>{
+public class LevelController implements EventHandler<ActionEvent>{
 
 	private Level level;
 	
-	public LevelSelectController() {
+	public LevelController() {
 		super();
 		this.level = new Level();
 	}

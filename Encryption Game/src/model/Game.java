@@ -8,8 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Game {
-	private WordBank wordBank;			// Word bank of string values without encryption
-	private EncryptedBank encryptedBank; // Word bank of string values with encryption
+	private Bank wordBank;			// Word bank of string values without encryption
+	private Bank encryptedBank; // Word bank of string values with encryption
 	private int wordIndex;				// Index of current word
 	private int int_score;				// Score determined by choosing to grade attempt
 	private EncryptPlayer player;		// Current player

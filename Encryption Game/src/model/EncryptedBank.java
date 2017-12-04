@@ -1,6 +1,6 @@
 package model;
 
-public class EncryptedBank {
+public class EncryptedBank implements Bank {
 
 	private String[] encryptedBank;
 	
@@ -14,6 +14,7 @@ public class EncryptedBank {
 	 * specified level
 	 * @param level Game level chosen by the user 
 	 */
+	@Override
 	public void populateBank(int level) {
 		switch(level) 
 		{
@@ -38,6 +39,7 @@ public class EncryptedBank {
 	 * @param index index of word in encryptedBank to be returned
 	 * @return String value at encryptedBank[index]
 	 */
+	@Override
 	public String getWord(int index) {
 		return this.encryptedBank[index];
 	}

@@ -24,7 +24,7 @@ public class MainMenu {
 				controller.setLevel(1);
 				primaryStage .setTitle("Project Encrypt");
 			} else if (selection.equals("Level Select")) {
-				root = FXMLLoader.load(getClass().getResource("/view/LevelSelectView.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/view/LevelView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Level Select");
 			} else {
 				root = FXMLLoader.load(getClass().getResource("/view/ScoresView.fxml"));

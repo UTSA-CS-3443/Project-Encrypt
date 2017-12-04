@@ -1,6 +1,6 @@
 package model;
 
-public class WordBank {
+public class WordBank implements Bank {
 
 	private String[] wordBank;
 	
@@ -14,6 +14,7 @@ public class WordBank {
 	 * specified level
 	 * @param level Game level chosen by the user 
 	 */
+	@Override
 	public void populateBank(int level) {
 		switch(level) 
 		{
@@ -39,6 +40,7 @@ public class WordBank {
 	 * @param index index of word in wordBank to be returned
 	 * @return String value at wordBank[index]
 	 */
+	@Override
 	public String getWord(int index) {
 		return this.wordBank[index];
 	}
