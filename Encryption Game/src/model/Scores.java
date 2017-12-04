@@ -1,6 +1,7 @@
 package model;
 
 import controller.GameController;
+import java.util.Random;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 public class Scores {
 
 	public Scores() {
+		
 	}
 	
 	/**
@@ -26,6 +28,15 @@ public class Scores {
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	public void randomScore()
+	{
+		int[] randomScore = new int[5];
+		Random rand = new Random();
+		for(int i = 0; i < 6; i++)
+		{
+			randomScore[i] = rand.nextInt(100) + 20;
 		}
 	}
 
