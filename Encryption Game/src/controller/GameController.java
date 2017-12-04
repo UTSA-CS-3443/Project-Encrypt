@@ -21,7 +21,8 @@ public class GameController implements EventHandler<ActionEvent>{
 	private TextField currentScore;		// Current running score of game
 	private Game game;					// Game instance
 	private char choice;					// Single character indicating menu choice
-	private boolean start;
+	private boolean start;				// Indicates game has started when true
+	private boolean gameOver;			// Indicates game is over when true
 	private boolean acceptingInput;		// Indicates that program is ready to accept input
 	private boolean subPart1;			// Indicates that program is ready to accept letter to be replaced
 	private boolean subPart2;			// Indicates that program is ready to accept replacement letter
@@ -34,6 +35,7 @@ public class GameController implements EventHandler<ActionEvent>{
 		super();
 		// this.game = new Game("Player 1", level);	
 		this.start = false;
+		this.gameOver = false;
 		this.acceptingInput = false;
 		this.subPart1 = false;
 		this.subPart2 = false;
@@ -87,17 +89,19 @@ public class GameController implements EventHandler<ActionEvent>{
 				break;
 			}
 		}
-		/* User has chosen to start the current game */
-		if (b.getText().equals("START")) {
-			this.start = true;
-			this.currentWord.setText( this.game.getSentence() );
-			this.originalEncryption = this.game.getSentence();
-			this.prompt.setText( "Substitute, Shift, Check Your Answer, \nor Quit to Main Menu" );
-		}
-		/* User has chosen to reset the current word to its original encrypted form */
-		if (b.getText().equals("Reset Encryption")) {
-			this.currentWord.setText( this.originalEncryption );
-			this.game.setSentence( originalEncryption );
+		if (!gameOver) {
+			/* User has chosen to start the current game */
+			if (b.getText().equals("START")) {
+				this.start = true;
+				this.currentWord.setText( this.game.getSentence() );
+				this.originalEncryption = this.game.getSentence();
+				this.prompt.setText( "Substitute, Shift, Check Your Answer, \nor Quit to Main Menu" );
+			}
+			/* User has chosen to reset the current word to its original encrypted form */
+			if (b.getText().equals("Reset Encryption")) {
+				this.currentWord.setText( this.originalEncryption );
+				this.game.setSentence( originalEncryption );
+			}
 		}
 		/* Only allow substitutions, shifts, and answer checks after user has chosen to start the game */
 		if (start) {
@@ -118,8 +122,11 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has chosen to check answer */
 			if (b.getText().equals("Check Answer")) {
-				if ( this.game.getIndex() >= 2 )
-					this.prompt.setText( "No More Words to Decrypt. Game Over" );
+				if ( this.game.getIndex() >= 2 ) {
+					this.prompt.setText( "No More Words to Decrypt. Quit to Main Menu to choose a new level." );
+					this.start = false;
+					this.gameOver = true;
+				}
 				this.game.setChoice('G');
 				this.game.runGame('G');
 				this.currentWord.setText( this.game.getSentence() );

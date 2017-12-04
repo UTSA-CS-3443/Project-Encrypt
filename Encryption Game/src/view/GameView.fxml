@@ -56,7 +56,7 @@
                   <Font name="Apple SD GothicNeo ExtraBold" size="46.0" />
                </font>
             </Text>
-            <Label fx:id="prompt" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="240.0" prefHeight="67.0" prefWidth="405.0" text="Press START to begin!" />
+            <Label fx:id="prompt" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="240.0" prefHeight="67.0" prefWidth="405.0" text="Press START to begin!" textAlignment="CENTER" wrapText="true" />
             <Button layoutX="192.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" prefHeight="42.0" prefWidth="99.0" text="START" />
             <Label fx:id="currentWord" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="115.0" prefHeight="67.0" prefWidth="405.0" text="Welcome to Project Encrypt!" />
             <TextField fx:id="input" layoutX="156.0" layoutY="334.0" onAction="#handle" />
