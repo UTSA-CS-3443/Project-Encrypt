@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -24,6 +25,7 @@
             <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 2" />
             <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 3" />
             <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 4" />
+            <Label layoutX="61.0" layoutY="521.0" prefHeight="54.0" prefWidth="358.0" text="Levels range in difficulty from Level 1 (least challenging) to Level 4 (most challenging)" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
          </children>
       </Pane>
    </children>
