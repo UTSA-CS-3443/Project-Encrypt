@@ -17,6 +17,8 @@ public class GameController implements EventHandler<ActionEvent>{
 	private Label prompt;				// Label to display messages/instructions to the user
 	@FXML
 	private TextField input;				// TextField for receiving user input
+	@FXML
+	private TextField currentScore;		// Current running score of game
 	private Game game;					// Game instance
 	private char choice;					// Single character indicating menu choice
 	private boolean start;
@@ -122,6 +124,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.game.runGame('G');
 				this.currentWord.setText( this.game.getSentence() );
 				this.originalEncryption = this.game.getSentence();
+				this.currentScore.setText( "Score: " + this.game.getScore() );
 			}
 		}
 		/* User has chosen to return to the main menu */

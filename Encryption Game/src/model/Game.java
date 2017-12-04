@@ -8,13 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Game {
-	private Bank wordBank;			// Word bank of string values without encryption
-	private Bank encryptedBank; // Word bank of string values with encryption
+	private Bank wordBank;				// Word bank of string values without encryption
+	private Bank encryptedBank; 			// Word bank of string values with encryption
 	private int wordIndex;				// Index of current word
 	private int int_score;				// Score determined by choosing to grade attempt
 	private EncryptPlayer player;		// Current player
 	private String str_currentSentence; 	// Current word
 	private char choice;
+	private int currentScore; 			// Current running score of game
 	
 	public Game(String strp_playerName, int gameLevel) {
 		wordBank = new WordBank(gameLevel);
@@ -115,11 +116,20 @@ public class Game {
 				int_score +=5;
 			}
 		}
+ 		player.changeScore(int_score);
 		System.out.println("You scored " + int_score + " points!");
+		System.out.println("Current score: " + player.getInt_score());
 		System.out.println("Actual Word: " + wordBank.getWord(wordIndex) + "\n Your Word: " + strp_attemptSentence);
-		player.changeScore(int_score);
+		setScore( player.getInt_score() );
 	}
 
+	public void setScore(int score) {
+		this.currentScore = score;
+	}
+	
+	public int getScore() {
+		return this.currentScore;
+	}
 
 	public void backToMainMenu(Stage primaryStage) {
 		/* If user chooses to return to main menu */
