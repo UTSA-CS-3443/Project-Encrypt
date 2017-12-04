@@ -1,5 +1,17 @@
 @font face
 {
 	-fx-font-family: 'Apple SD GothicNeo ExtraBold';
-	src: url('view/AppleSDGothicNeo.ttc');
+	src: url('/view/AppleSDGothicNeo.ttc');
+}
+
+@font_face
+{
+	-fx-font-family: 'American Typewriter';
+	src: url('/view/AmericanTypewriter.ttc');
+}
+
+@font_face
+{
+	-fx-font-family: 'Zapfino';
+	src: url('/view/Zapfino.ttf');
 }

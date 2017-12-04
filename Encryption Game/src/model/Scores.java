@@ -1,20 +1,15 @@
 package model;
 
-import java.util.ArrayList;
-
 import controller.GameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
 
 public class Scores {
 
-	ArrayList<String> scores;
-	
 	public Scores() {
-		// TODO Auto-generated constructor stub
-		this.scores = new ArrayList<String>();
 	}
 	
 	/**
@@ -22,12 +17,10 @@ public class Scores {
 	 * @param score
 	 * @return
 	 */
-	public void LoadScore(Stage primaryStage, int level) {
+	public void LoadScore(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HighScoreView.fxml"));
 			Parent root = (Parent) loader.load();
-			GameController controller = loader.getController();
-			controller.setLevel(level);
 			primaryStage.setScene(new Scene(root, 480, 640));
 			primaryStage.setTitle("Project Encrypt");
 			primaryStage.show();

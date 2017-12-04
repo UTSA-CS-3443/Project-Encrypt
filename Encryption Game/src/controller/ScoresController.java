@@ -10,23 +10,9 @@ public class ScoresController implements EventHandler<ActionEvent>{
 
 	private Scores score;
 	
-	/*@FXML
-	private Label score1;
-	@FXML
-	private Label score2; 
-	@FXML
-	private Label score3;
-	@FXML
-	private Label score4;*/
-	
-	
 	public ScoresController() {
 		super();
 		this.score = new Scores();
-		/*this.score1.setText( getScore(1) );
-		this.score1.setText( getScore(2) );
-		this.score1.setText( getScore(3) );
-		this.score1.setText( getScore(4) );*/
 	}
 	
 	@Override
@@ -41,19 +27,19 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		}
 		if (b.getText().equals("Score 1"))
 		{
-			this.score.LoadScore(newStage, 1);
+			this.score.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 2"))
 		{
-			this.score.LoadScore(newStage, 2);
+			this.score.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 3"))
 		{
-			this.score.LoadScore(newStage, 3);
+			this.score.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 4"))
 		{
-			this.score.LoadScore(newStage, 4);
+			this.score.LoadScore(newStage);
 		}
 	}
 }
