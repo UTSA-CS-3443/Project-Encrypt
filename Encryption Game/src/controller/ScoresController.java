@@ -2,17 +2,29 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Scores;
 
 public class ScoresController implements EventHandler<ActionEvent>{
 
-	private Scores score;
+	private Scores scores;
+	@FXML
+	private Label score1;
+	@FXML
+	private Label score2;
+	@FXML
+	private Label score3;
+	@FXML
+	private Label score4;
 	
 	public ScoresController() {
 		super();
-		this.score = new Scores();
+		this.scores = new Scores();
+		this.scores.readScores();
+		this.scores.getTopScores();
 	}
 	
 	@Override
@@ -23,23 +35,29 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		Stage newStage = (Stage) b.getScene().getWindow();
 		
 		if (b.getText().equals("Back to Main Menu")) {
-			this.score.backToMainMenu(newStage);
+			this.scores.backToMainMenu(newStage);
+		}
+		if (b.getText().equals("Show Scores") ) {
+			this.score1.setText( "" + this.scores.getScore(0) );
+			this.score2.setText( "" + this.scores.getScore(1) );
+			this.score3.setText( "" + this.scores.getScore(2) );
+			this.score4.setText( "" + this.scores.getScore(3) );
 		}
 		if (b.getText().equals("Score 1"))
 		{
-			this.score.LoadScore(newStage);
+			this.scores.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 2"))
 		{
-			this.score.LoadScore(newStage);
+			this.scores.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 3"))
 		{
-			this.score.LoadScore(newStage);
+			this.scores.LoadScore(newStage);
 		}
 		if(b.getText().equals("Score 4"))
 		{
-			this.score.LoadScore(newStage);
+			this.scores.LoadScore(newStage);
 		}
 	}
 }
