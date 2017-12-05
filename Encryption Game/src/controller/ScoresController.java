@@ -19,29 +19,33 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	private Label score3;
 	@FXML
 	private Label score4;
+	@FXML
+	private Button showScores;
 	
 	public ScoresController() {
 		super();
 		this.scores = new Scores();
+	}
+	
+	public void setupScores() {
 		this.scores.readScores();
-		this.scores.getTopScores();
+		this.scores.getTopScores();		
+		this.score1.setText( "" + this.scores.getScore(0) );
+		this.score2.setText( "" + this.scores.getScore(1) );
+		this.score3.setText( "" + this.scores.getScore(2) );
+		this.score4.setText( "" + this.scores.getScore(3) );
 	}
 	
 	@Override
 	public void handle(ActionEvent event) {
 		Button b = (Button)event.getSource();
 		System.out.println( b.getText() );
+		System.out.println(event.toString());
 		
 		Stage newStage = (Stage) b.getScene().getWindow();
 		
 		if (b.getText().equals("Back to Main Menu")) {
 			this.scores.backToMainMenu(newStage);
-		}
-		if (b.getText().equals("Show Scores") ) {
-			this.score1.setText( "" + this.scores.getScore(0) );
-			this.score2.setText( "" + this.scores.getScore(1) );
-			this.score3.setText( "" + this.scores.getScore(2) );
-			this.score4.setText( "" + this.scores.getScore(3) );
 		}
 		if (b.getText().equals("Score 1"))
 		{
