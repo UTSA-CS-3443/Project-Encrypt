@@ -25,6 +25,8 @@ public class GameController implements EventHandler<ActionEvent>{
 	private TextField input;				// TextField for receiving user input
 	@FXML
 	private TextField currentScore;		// Current running score of game
+	@FXML 
+	private Label inputWarning;			// Displays warning message depending on user input
 	private Game game;					// Game instance
 	private char choice;					// Single character indicating menu choice
 	private boolean start;				// Indicates game has started when true
@@ -65,10 +67,26 @@ public class GameController implements EventHandler<ActionEvent>{
 		Button b = (Button)event.getSource();
 		System.out.println( b.getText() );
 		
+		// Hide warning when not needed
+		this.inputWarning.setText("");
+		
 		/* User has entered input at the program's request and clicked on 'Submit' */
 		while (this.acceptingInput && b.getText().equals("Submit")) { 
+			/* If user has clicked "Submit" before entering a value */
+			if (this.input.getText().length() == 0) {
+				this.inputWarning.setText("** No input detected. Enter required character below **");
+				break;
+			}
 			/* User has entered letter to be replaced */
 			if (getChoice() == 'B' && subPart1) {
+				if (this.input.getText().length() > 1) {
+					this.inputWarning.setText("** You may only enter a single letter to be replaced. Try again. **");
+					break;
+				}
+				if (this.input.getText().charAt(0) < 97 || this.input.getText().charAt(0) > 122) {
+					this.inputWarning.setText("** Invalid character. Try again. **");
+					break;
+				}
 				replacedLetter = input.getText().charAt(0);
 				this.prompt.setText("Substituting!\nEnter a letter to replace " + replacedLetter + " with:");
 				this.subPart2 = true;
@@ -78,6 +96,14 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has entered replacement letter */
 			if (getChoice() == 'B' && subPart2) {
+				if (this.input.getText().length() > 1) {
+					this.inputWarning.setText("** You may only enter a single letter to be replaced. Try again. **");
+					break;
+				}
+				if (this.input.getText().charAt(0) < 97 || this.input.getText().charAt(0) > 122) {
+					this.inputWarning.setText("** Invalid character. Try again. **");
+					break;
+				}
 				replacementLetter = input.getText().charAt(0);
 				this.game.substituteLetter(replacedLetter, replacementLetter);
 				this.prompt.setText("Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");
@@ -88,6 +114,16 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has entered shift value */
 			if (getChoice() == 'H') {
+				/* If user has not entered an integer value */
+				try {
+					Integer.parseInt(this.input.getText());
+				} catch (NumberFormatException e) {
+					this.inputWarning.setText("** Invalid character. Try again. **");
+					break;
+				} catch (NullPointerException e) {
+					this.inputWarning.setText("** Invalid character. Try again. **");
+					break;
+				}
 				this.game.shiftSentence(this.input.getText());
 				this.currentWord.setText(this.game.getSentence());
 				this.prompt.setText("Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");
@@ -107,6 +143,11 @@ public class GameController implements EventHandler<ActionEvent>{
 			if (b.getText().equals("Reset Encryption")) {
 				this.currentWord.setText( this.originalEncryption );
 				this.game.setSentence( originalEncryption );
+				this.inputWarning.setText("");
+				setChoice(' ');
+				this.subPart1 = false;
+				this.subPart2 = false;
+				this.acceptingInput = false;
 			}
 		}
 		/* Only allow substitutions, shifts, and answer checks after user has chosen to start the game */
