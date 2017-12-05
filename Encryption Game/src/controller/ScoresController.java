@@ -28,33 +28,36 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	
 	public ScoresController() {
 		super();
-		randomScores1 = new int[4];
-		
 		this.scores = new Scores();
-		this.scores.randomScore(randomScores1);
-		this.scores.rankScore(randomScores1);
-		this.scores.readScores(randomScores1);
-	
-		
-		randomScores2 = new int[4];
-		this.scores = new Scores();
-		this.scores.randomScore(randomScores2);
-		this.scores.rankScore(randomScores2);
-		this.scores.readScores(randomScores2);
-	
-		
-		randomScores3 = new int[4];
-		this.scores = new Scores();
-		this.scores.randomScore(randomScores3);
-		this.scores.rankScore(randomScores3);
-		this.scores.readScores(randomScores3);
-		
-		
-		randomScores4 = new int[4];
-		this.scores = new Scores();
-		this.scores.randomScore(randomScores4);
-		this.scores.rankScore(randomScores4);
-		this.scores.readScores(randomScores4);
+//		randomScores1 = new int[4];
+//		
+//		
+//		
+//		this.scores = new Scores();
+//		this.scores.randomScore(randomScores1);
+//		this.scores.rankScore(randomScores1);
+//		this.scores.readScores(randomScores1);
+//	
+//		
+//		randomScores2 = new int[4];
+//		this.scores = new Scores();
+//		this.scores.randomScore(randomScores2);
+//		this.scores.rankScore(randomScores2);
+//		this.scores.readScores(randomScores2);
+//	
+//		
+//		randomScores3 = new int[4];
+//		this.scores = new Scores();
+//		this.scores.randomScore(randomScores3);
+//		this.scores.rankScore(randomScores3);
+//		this.scores.readScores(randomScores3);
+//		
+//		
+//		randomScores4 = new int[4];
+//		this.scores = new Scores();
+//		this.scores.randomScore(randomScores4);
+//		this.scores.rankScore(randomScores4);
+//		this.scores.readScores(randomScores4);
 	}
 	
 	
@@ -69,21 +72,37 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Back to Main Menu")) {
 			this.scores.backToMainMenu(newStage);
 		}
+//		if (b.getText().equals("Level 1 Scores"))
+//		{
+//			this.scores.LoadScore(newStage, randomScores1);
+//		}
+//		if(b.getText().equals("Level 2 Scores"))
+//		{
+//			this.scores.LoadScore(newStage, randomScores2);
+//		}
+//		if(b.getText().equals("Level 3 Scores"))
+//		{
+//			this.scores.LoadScore(newStage, randomScores3);
+//		}
+//		if(b.getText().equals("Level 4 Scores"))
+//		{
+//			this.scores.LoadScore(newStage, randomScores4);
+//		}
 		if (b.getText().equals("Level 1 Scores"))
 		{
-			this.scores.LoadScore(newStage, randomScores1);
+			this.scores.LoadScore(newStage, 1);
 		}
 		if(b.getText().equals("Level 2 Scores"))
 		{
-			this.scores.LoadScore(newStage, randomScores2);
+			this.scores.LoadScore(newStage, 2);
 		}
 		if(b.getText().equals("Level 3 Scores"))
 		{
-			this.scores.LoadScore(newStage, randomScores3);
+			this.scores.LoadScore(newStage, 3);
 		}
 		if(b.getText().equals("Level 4 Scores"))
 		{
-			this.scores.LoadScore(newStage, randomScores4);
+			this.scores.LoadScore(newStage, 4);
 		}
 	}
 }

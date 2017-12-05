@@ -21,6 +21,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	private Scores scores;
 	private int playerS;
 	private int[] highScores;
+	private int level;
 	@FXML
 	private Label playerScore;
 	@FXML
@@ -39,29 +40,51 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	public HighScoreController()
 	{
 		super();
-		Scanner scan = null;
-		int i = 0;
-		scores = new Scores();
-		highScores = new int[4];
-		try {
-			scan = new Scanner(new File("scores.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		while(scan.hasNextInt())
-		{
-			highScores[i] = scan.nextInt();
-			i++;
-		}
+		this.scores = new Scores();
+		
+		
+		
+//		Scanner scan = null;
+//		int i = 0;
+//		scores = new Scores();
+//		highScores = new int[4];
+//		try {
+//			scan = new Scanner(new File("scores.txt"));
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		while(scan.hasNextInt())
+//		{
+//			highScores[i] = scan.nextInt();
+//			i++;
+//		}
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public void setupScores(int level) {
+		this.scores.setLevel(this.level);
+		this.scores.readScores();
+		this.scores.getTopScores();
+		score1.setText("1: " + scores.getScore(0));
+		score2.setText("2: " + scores.getScore(1));
+		score3.setText("3: " + scores.getScore(2));
+		score4.setText("4: " + scores.getScore(3));
 	}
 	
 	public void initialize()
 	{
-		score1.setText("" + highScores[3]);
-		score2.setText("" + highScores[2]);
-		score3.setText("" + highScores[1]);
-		score4.setText("" + highScores[0]);
+//		score1.setText("" + highScores[3]);
+//		score2.setText("" + highScores[2]);
+//		score3.setText("" + highScores[1]);
+//		score4.setText("" + highScores[0]);
+//		score1.setText("1: " + scores.getScore(0));
+//		score2.setText("2: " + scores.getScore(1));
+//		score3.setText("3: " + scores.getScore(2));
+//		score4.setText("4: " + scores.getScore(3));
 		playerScore.setText("" + playerS);
 	}
 	

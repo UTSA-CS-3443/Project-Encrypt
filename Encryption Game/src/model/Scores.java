@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.Collections;
 
 import controller.GameController;
+import controller.HighScoreController;
+
 import java.util.Random;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,46 +21,112 @@ import javafx.stage.Stage;
 
 public class Scores {
 
-	private int[] score;
-	BufferedWriter bw = null;
-	FileWriter fw = null;
+//	private int[] score;
+//	BufferedWriter bw = null;
+//	FileWriter fw = null;
+//	
+//	public Scores() {
+//		score = new int[4];
+//	}
+//	
+//	/**
+//	 * Reads in all scores from scores array
+//	 * @param a
+//	 */
+//	public void readScores(int[] a) {
+//		try {
+//			fw = new FileWriter("scores.txt");
+//			bw = new BufferedWriter(fw);
+//			for(int i = 0; i < 4; i++)
+//			{
+//				bw.write("" + a[i] + "\n");
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		try {
+//			bw.close();
+//			fw.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//	}
+//	
+//	/**
+//	 * Returns specified score in score Array
+//	 * @param scoreNum 
+//	 * @return
+//	 */
+//	public int getScore(int scoreNum) {
+//		return score[scoreNum];
+//	}
+	
+	private ArrayList<Integer> scores;
+	private ArrayList<Integer> topScores;
+	private int level;
 	
 	public Scores() {
-		score = new int[4];
+		this.scores = new ArrayList<Integer>();
+		this.topScores = new ArrayList<Integer>();
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 	/**
-	 * Reads in all scores from scores array
-	 * @param a
+	 * Reads in all scores from scores.txt
 	 */
-	public void readScores(int[] a) {
+	public void readScores() {
+		Scanner in = null;
 		try {
-			fw = new FileWriter("scores.txt");
-			bw = new BufferedWriter(fw);
-			for(int i = 0; i < 4; i++)
-			{
-				bw.write("" + a[i] + "\n");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+			if (this.level == 1)
+				in = new Scanner(new File("scores1.txt"));
+			else if (this.level == 2)
+				in = new Scanner(new File("scores2.txt"));
+			else if (this.level == 3)
+				in = new Scanner(new File("scores3.txt"));
+			else 
+				in = new Scanner(new File("scores4.txt"));
+		} catch (FileNotFoundException e) {
+			System.err.println("Failed to open scores.txt");
+			System.exit(1);
 		}
-		try {
-			bw.close();
-			fw.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while (in.hasNext()) {
+			this.scores.add(Integer.parseInt(in.next()));
 		}
-		
+		in.close();
 	}
 	
 	/**
-	 * Returns specified score in score Array
-	 * @param scoreNum 
+	 * Sorts scores ArrayList in reverse order and adds top 4 scores to topScores ArrayList
+	 */
+	public void getTopScores() {
+		Collections.sort(scores);
+		Collections.reverse(scores);
+		for (int i = 0; i < 4; i++) {
+			if (this.scores.size() - 1 < i) {
+				this.topScores.add(0);
+				System.out.println("Score " + i + " = " + this.topScores.get(i));
+			}
+			else {
+				this.topScores.add(this.scores.get(i));
+				System.out.println("Score " + i + " = " + this.topScores.get(i));
+			}
+		}
+	}
+	
+	/**
+	 * Returns specified score in topScores ArrayList
+	 * @param scoreNum
 	 * @return
 	 */
 	public int getScore(int scoreNum) {
-		return score[scoreNum];
+		if (this.topScores.size() < scoreNum)
+			return 0;
+		return this.topScores.get(scoreNum);
 	}
 	
 	/**
@@ -66,11 +134,15 @@ public class Scores {
 	 * @param score
 	 * @return
 	 */
-	public void LoadScore(Stage primaryStage, int[] a ) {
-		this.readScores(a);
+//	public void LoadScore(Stage primaryStage, int[] a ) {
+	public void LoadScore(Stage primaryStage, int level ) {
+		//this.readScores(a);
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HighScoreView.fxml"));
 			Parent root = (Parent) loader.load();
+			HighScoreController controller = loader.getController();
+			controller.setLevel(level);
+			controller.setupScores(level);
 			primaryStage.setScene(new Scene(root, 480, 640));
 			primaryStage.setTitle("Project Encrypt");
 			primaryStage.show();
