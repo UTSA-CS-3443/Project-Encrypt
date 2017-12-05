@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="640.0" prefWidth="480.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.ScoresController">
+<AnchorPane prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ScoresController">
    <children>
       <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="490.0" style="-fx-background-color: rgb(65,105,225);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -25,6 +24,11 @@
             <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 2" />
             <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 3" />
             <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 4" />
+            <Label fx:id="score1" layoutX="303.0" layoutY="134.0" prefHeight="17.0" prefWidth="126.0" />
+            <Label fx:id="score2" layoutX="303.0" layoutY="239.0" prefHeight="17.0" prefWidth="126.0" />
+            <Label fx:id="score3" layoutX="303.0" layoutY="342.0" prefHeight="17.0" prefWidth="126.0" />
+            <Label fx:id="score4" layoutX="303.0" layoutY="451.0" prefHeight="17.0" prefWidth="126.0" />
+            <Button layoutX="196.0" layoutY="530.0" mnemonicParsing="false" onAction="#handle" text="Show Scores" />
          </children>
       </Pane>
    </children>

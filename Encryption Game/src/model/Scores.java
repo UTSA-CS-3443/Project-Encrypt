@@ -1,25 +1,54 @@
 package model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Collections;
+
 import controller.GameController;
 import java.util.Random;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
 
 public class Scores {
 
+	private int[] score;
+	
 	public Scores() {
-		
+		score = new int[4];
 	}
 	
 	/**
-	 * Returns the current score 
+	 * Reads in all scores from scores array
+	 * @param a
+	 */
+	public void readScores(int[] a) {
+		for(int i = 0; i < 4; i++)
+		{
+			score[i] = a[i];
+		}
+	}
+	
+	/**
+	 * Returns specified score in score Array
+	 * @param scoreNum 
+	 * @return
+	 */
+	public int getScore(int scoreNum) {
+		return score[scoreNum];
+	}
+	
+	/**
+	 * Loads the high score view
 	 * @param score
 	 * @return
 	 */
-	public void LoadScore(Stage primaryStage) {
+	public void LoadScore(Stage primaryStage, int[] a ) {
+		this.readScores(a);
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/HighScoreView.fxml"));
 			Parent root = (Parent) loader.load();
@@ -30,14 +59,24 @@ public class Scores {
 			e.printStackTrace();
 		}
 	}
-	public void randomScore()
+	/**
+	 * Generates 4 Random scores to populate high score view 
+	 */
+	public void randomScore(int a[])
 	{
-		int[] randomScore = new int[5];
 		Random rand = new Random();
-		for(int i = 0; i < 6; i++)
+		for(int i = 0; i < 4; i++)
 		{
-			randomScore[i] = rand.nextInt(100) + 20;
+			a[i] = rand.nextInt(75) + 20;
 		}
+	}
+	/**
+	 * Sorts array in ascending order
+	 * @param a
+	 */
+	public void rankScore(int[] a)
+	{
+		Arrays.sort(a);
 	}
 
 	public void backToMainMenu(Stage primaryStage) {

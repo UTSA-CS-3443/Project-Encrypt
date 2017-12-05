@@ -1,5 +1,11 @@
 package controller;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Formatter;
+import java.util.FormatterClosedException;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -122,7 +128,7 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has chosen to check answer */
 			if (b.getText().equals("Check Answer")) {
-				if ( this.game.getIndex() >= 2 ) {
+				if ( this.game.getIndex() >= 2 ) {					
 					this.prompt.setText( "No More Words to Decrypt. Quit to Main Menu to choose a new level." );
 					this.start = false;
 					this.gameOver = true;
@@ -136,6 +142,29 @@ public class GameController implements EventHandler<ActionEvent>{
 		}
 		/* User has chosen to return to the main menu */
 		if (b.getText().equals("Quit to Main Menu")) {
+			if (this.gameOver) {
+				// Write score to scores.txt
+				Formatter output;
+				FileWriter file;
+				try {
+					file = new FileWriter("scores.txt", true);
+					output = new Formatter(file); 
+					output.format( "%d\n", this.game.getScore());
+					if (output != null)
+						output.close();
+				} catch (SecurityException securityException) {
+					System.err.println("Write permission denied. Terminating");
+					System.exit(1);
+				} catch (FileNotFoundException fileNotFoundException) {
+					System.err.println("Error opening file. Terminating");
+					System.exit(1);
+				} catch (FormatterClosedException formatterClosedException ) {
+					System.err.println("Error writing to file. Terminating.");
+				} catch (IOException e) {
+					System.err.println("Error creating file writer. Terminating.");
+				}	
+			}
+				
 			setChoice('Q');
 			this.game.setChoice('Q');
 			Stage newStage = (Stage) b.getScene().getWindow();

@@ -1,5 +1,8 @@
 package application;
 	
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -14,10 +17,19 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		// Clear existing contents of scores.txt before starting application
+		PrintWriter writer = null;
+		try {
+			writer = new PrintWriter("scores.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		writer.close();
+		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 			primaryStage.setScene(new Scene(root, 480, 640));
-			primaryStage.setTitle("Project Encyrpt: Main Menu");
+			primaryStage.setTitle("Project Encrypt: Main Menu");
 			primaryStage.getIcons().add(new Image("/view/icon-512@x.png"));
 			primaryStage.show();
 		} catch(Exception e) {
