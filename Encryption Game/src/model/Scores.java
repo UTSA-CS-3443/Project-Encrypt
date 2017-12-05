@@ -82,6 +82,7 @@ public class Scores {
 	public void readScores() {
 		Scanner in = null;
 		try {
+//<<<<<<< HEAD
 			if (this.level == 1)
 				in = new Scanner(new File("scores1.txt"));
 			else if (this.level == 2)
@@ -93,6 +94,16 @@ public class Scores {
 		} catch (FileNotFoundException e) {
 			System.err.println("Failed to open scores.txt");
 			System.exit(1);
+//=======
+//			fw = new FileWriter("scores.txt", true);
+//			bw = new BufferedWriter(fw);
+//			for(int i = 0; i < 4; i++)
+//			{
+//				bw.write("" + a[i] + "\n");
+//			}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//>>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Project-Encrypt.git
 		}
 		while (in.hasNext()) {
 			this.scores.add(Integer.parseInt(in.next()));

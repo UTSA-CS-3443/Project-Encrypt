@@ -36,31 +36,40 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	private Label score3;
 	@FXML
 	private Label score4;
+	private String temp;
 	
 	public HighScoreController()
 	{
 		super();
 		this.scores = new Scores();
-		
-		
-		
-//		Scanner scan = null;
-//		int i = 0;
-//		scores = new Scores();
-//		highScores = new int[4];
-//		try {
-//			scan = new Scanner(new File("scores.txt"));
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		while(scan.hasNextInt())
-//		{
-//			highScores[i] = scan.nextInt();
-//			i++;
-//		}
+
+		Scanner scan = null;
+		int i = 0;
+		scores = new Scores();
+		highScores = new int[300];
+		try {
+			scan = new Scanner(new File("scores.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(scan.hasNext("PLAYER"))
+		{
+			temp = scan.next();
+			if(scan.hasNextInt())
+			{
+				playerS = scan.nextInt();
+			}
+			System.out.println(temp);
+			System.out.println(playerS);
+		}
+		while(scan.hasNextInt())
+		{
+			highScores[i] = scan.nextInt();
+			i++;
+		}
 	}
-	
+
 	public void setLevel(int level) {
 		this.level = level;
 	}
@@ -94,7 +103,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		System.out.println( b.getText() );
 		Stage newStage = (Stage) b.getScene().getWindow();
 		
-		if (b.getText().equals("Back To Main Menu")) {
+		if (b.getText().equals("Back to Main Menu")) {
 			this.scores.backToMainMenu(newStage);
 		}
 		if (b.getText().equals("Back to Scores Menu")) {
