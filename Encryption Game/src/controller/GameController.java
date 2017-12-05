@@ -24,7 +24,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	@FXML
 	private TextField input;				// TextField for receiving user input
 	@FXML
-	private TextField currentScore;		// Current running score of game
+	private Label currentScore;			// Current running score of game
 	@FXML 
 	private Label inputWarning;			// Displays warning message depending on user input
 	private Game game;					// Game instance
@@ -140,7 +140,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.prompt.setText( "Substitute, Shift, Check Your Answer, \nor Quit to Main Menu" );
 			}
 			/* User has chosen to reset the current word to its original encrypted form */
-			if (b.getText().equals("Reset Encryption")) {
+			if (b.getText().equals("Reset Encryption") && this.start) {
 				this.currentWord.setText( this.originalEncryption );
 				this.game.setSentence( originalEncryption );
 				this.inputWarning.setText("");
