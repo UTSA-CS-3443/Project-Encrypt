@@ -19,11 +19,10 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	private Label score3;
 	@FXML
 	private Label score4;
-	private HighScoreController control;
-	int[] randomScores1;
-	int[] randomScores2;
-	int[] randomScores3;
-	int[] randomScores4;
+	private int[] randomScores1;
+	private int[] randomScores2;
+	private int[] randomScores3;
+	private int[] randomScores4;
 	
 	public ScoresController() {
 		super();
@@ -81,7 +80,6 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		if(b.getText().equals("Score 2"))
 		{
 			this.scores.LoadScore(newStage, randomScores2);
-			
 		}
 		if(b.getText().equals("Score 3"))
 		{
@@ -90,7 +88,6 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		if(b.getText().equals("Score 4"))
 		{
 			this.scores.LoadScore(newStage, randomScores4);
-		
 		}
 	}
 }

@@ -1,7 +1,10 @@
 package model;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -17,6 +20,8 @@ import javafx.stage.Stage;
 public class Scores {
 
 	private int[] score;
+	BufferedWriter bw = null;
+	FileWriter fw = null;
 	
 	public Scores() {
 		score = new int[4];
@@ -27,10 +32,25 @@ public class Scores {
 	 * @param a
 	 */
 	public void readScores(int[] a) {
-		for(int i = 0; i < 4; i++)
-		{
-			score[i] = a[i];
+		try {
+			fw = new FileWriter("scores.txt");
+			bw = new BufferedWriter(fw);
+			for(int i = 0; i < 4; i++)
+			{
+				bw.write("" + a[i] + "\n");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		try {
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**

@@ -1,6 +1,11 @@
 package controller;
 
 import javafx.event.ActionEvent;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import controller.ScoresController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,13 +38,21 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	public HighScoreController()
 	{
 		super();
+		Scanner scan = null;
+		int i = 0;
 		scores = new Scores();
 		highScores = new int[4];
-		for(int i = 0; i < 4; i++)
-		{
-			highScores[i] = scores.getScore(i);
+		try {
+			scan = new Scanner(new File("scores.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
+		while(scan.hasNextInt())
+		{
+			highScores[i] = scan.nextInt();
+			i++;
+		}
 	}
 	
 	public void initialize()
@@ -51,13 +64,6 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		playerScore.setText("");
 	}
 	
-	public void readScores(int[] a)
-	{
-		for(int i = 0; i < 4; i++)
-		{
-			highScores[i] = a[i];
-		}
-	}
 	public void handle(ActionEvent event)
 	{
 		Button b = (Button)event.getSource();
