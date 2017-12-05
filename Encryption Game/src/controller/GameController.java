@@ -51,7 +51,7 @@ public class GameController implements EventHandler<ActionEvent>{
 	}
 	
 	public void setLevel(int level) {
-		// this.level = level;
+		this.level = level;
 		this.game = new Game("Player 1", level);
 	}
 	
@@ -186,10 +186,44 @@ public class GameController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Quit to Main Menu")) {
 			if (this.gameOver) {
 				// Write score to scores.txt
+//				Formatter output;
+//				FileWriter file;
+//				try {
+//					file = new FileWriter("scores.txt", true);
+//					output = new Formatter(file); 
+//					output.format( "%d\n", this.game.getScore());
+//					if (output != null)
+//						output.close();
+//				} catch (SecurityException securityException) {
+//					System.err.println("Write permission denied. Terminating");
+//					System.exit(1);
+//				} catch (FileNotFoundException fileNotFoundException) {
+//					System.err.println("Error opening file. Terminating");
+//					System.exit(1);
+//				} catch (FormatterClosedException formatterClosedException ) {
+//					System.err.println("Error writing to file. Terminating.");
+//				} catch (IOException e) {
+//					System.err.println("Error creating file writer. Terminating.");
+//				}	
+				
 				Formatter output;
 				FileWriter file;
 				try {
+					/* Write to general scores file */
 					file = new FileWriter("scores.txt", true);
+					output = new Formatter(file); 
+					output.format( "%d\n", this.game.getScore());
+					if (output != null)
+						output.close();
+					/* Write to level-specific scores file */
+					if (this.level == 1) 
+						file = new FileWriter("scores1.txt", true);
+					else if(this.level == 2)
+						file = new FileWriter("scores2.txt", true);
+					else if(this.level == 3)
+						file = new FileWriter("scores3.txt", true);
+					else
+						file = new FileWriter("scores4.txt", true);
 					output = new Formatter(file); 
 					output.format( "%d\n", this.game.getScore());
 					if (output != null)
@@ -205,6 +239,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				} catch (IOException e) {
 					System.err.println("Error creating file writer. Terminating.");
 				}	
+				
 			}
 				
 			setChoice('Q');
