@@ -57,15 +57,6 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		this.scores.readScores(randomScores4);
 	}
 	
-	public void setupScores() {
-		//this.scores.readScores();
-		//this.scores.getTopScores();		
-		this.score1.setText( "" + randomScores1[3] );
-		this.score2.setText( "" + randomScores2[3] );
-		this.score3.setText( "" + randomScores3[3] );
-		this.score4.setText( "" + randomScores4[3] );
-	}
-	
 	
 	@Override
 	public void handle(ActionEvent event) {
@@ -78,26 +69,19 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Back to Main Menu")) {
 			this.scores.backToMainMenu(newStage);
 		}
-		if (b.getText().equals("Show Scores") ) {
-			this.score1.setText( "" + randomScores1[3] );
-			this.score2.setText( "" + randomScores2[3]  );
-			this.score3.setText( "" + randomScores3[3] );
-			this.score4.setText( "" + randomScores4[3]  );
-		}
-
-		if (b.getText().equals("Score 1"))
+		if (b.getText().equals("Level 1 Scores"))
 		{
 			this.scores.LoadScore(newStage, randomScores1);
 		}
-		if(b.getText().equals("Score 2"))
+		if(b.getText().equals("Level 2 Scores"))
 		{
 			this.scores.LoadScore(newStage, randomScores2);
 		}
-		if(b.getText().equals("Score 3"))
+		if(b.getText().equals("Level 3 Scores"))
 		{
 			this.scores.LoadScore(newStage, randomScores3);
 		}
-		if(b.getText().equals("Score 4"))
+		if(b.getText().equals("Level 4 Scores"))
 		{
 			this.scores.LoadScore(newStage, randomScores4);
 		}

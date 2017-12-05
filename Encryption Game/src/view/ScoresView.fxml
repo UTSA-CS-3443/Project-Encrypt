@@ -20,14 +20,10 @@
                   <Font name="American Typewriter Semibold" size="54.0" />
                </font>
             </Text>
-            <Button contentDisplay="TOP" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 1" />
-            <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 2" />
-            <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 3" />
-            <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Score 4" />
-            <Label fx:id="score1" layoutX="303.0" layoutY="134.0" prefHeight="17.0" prefWidth="126.0" />
-            <Label fx:id="score2" layoutX="303.0" layoutY="239.0" prefHeight="17.0" prefWidth="126.0" />
-            <Label fx:id="score3" layoutX="303.0" layoutY="342.0" prefHeight="17.0" prefWidth="126.0" />
-            <Label fx:id="score4" layoutX="303.0" layoutY="451.0" prefHeight="17.0" prefWidth="126.0" />
+            <Button contentDisplay="TOP" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 1 Scores" />
+            <Button layoutX="24.0" layoutY="207.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 2 Scores" />
+            <Button layoutX="24.0" layoutY="310.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 3 Scores" />
+            <Button layoutX="24.0" layoutY="419.0" mnemonicParsing="false" onAction="#handle" prefHeight="80.0" prefWidth="433.0" style="-fx-background-color: rgb(255,255,255);" text="Level 4 Scores" />
          </children>
       </Pane>
    </children>

@@ -74,6 +74,9 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Back To Main Menu")) {
 			this.scores.backToMainMenu(newStage);
 		}
+		if (b.getText().equals("Back to Scores Menu")) {
+			this.scores.backToScoresMenu(newStage);
+		}
 		if (b.getText().equals("SUBMIT"))
 		{
 			this.playerName.setText(playerInput.getText());

@@ -28,10 +28,7 @@ public class MainMenu {
 				root = FXMLLoader.load(getClass().getResource("/view/LevelView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Level Select");
 			} else {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ScoresView.fxml"));
-				root = (Parent) loader.load();
-				ScoresController controller = loader.getController();
-				controller.setupScores();
+				root = FXMLLoader.load(getClass().getResource("/view/ScoresView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Scores");
 			}
 			primaryStage.setScene(new Scene(root, 480, 640));
