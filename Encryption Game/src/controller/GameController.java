@@ -142,6 +142,7 @@ public class GameController implements EventHandler<ActionEvent>{
 			/* User has chosen to reset the current word to its original encrypted form */
 			if (b.getText().equals("Reset Encryption") && this.start) {
 				this.currentWord.setText( this.originalEncryption );
+				this.prompt.setText("Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");
 				this.game.setSentence( originalEncryption );
 				this.inputWarning.setText("");
 				setChoice(' ');

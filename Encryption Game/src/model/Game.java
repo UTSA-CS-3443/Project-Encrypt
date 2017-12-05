@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 public class Game {
 	private Bank wordBank;				// Word bank of string values without encryption
 	private Bank encryptedBank; 			// Word bank of string values with encryption
+	private EncryptTool shiftTool;		// Shift tool
+	private EncryptTool substitutionTool;//
 	private int wordIndex;				// Index of current word
 	private int int_score;				// Score determined by choosing to grade attempt
 	private EncryptPlayer player;		// Current player
@@ -18,6 +20,8 @@ public class Game {
 	private int currentScore; 			// Current running score of game
 	
 	public Game(String strp_playerName, int gameLevel) {
+		substitutionTool = new SubstitutionTool();
+		shiftTool = new ShiftTool(); 
 		wordBank = new WordBank(gameLevel);
 		encryptedBank = new EncryptedBank(gameLevel);
 		wordIndex = 0;
@@ -82,7 +86,8 @@ public class Game {
 	 */
 	public String shiftSentence(String shiftValue){
 		int int_shift = (Integer.parseInt(shiftValue)) % 26;
-		String str_mutatedSentence = EncryptTool.shiftTool(-int_shift, str_currentSentence);
+		// String str_mutatedSentence = EncryptTool.shiftTool(-int_shift, str_currentSentence);
+		String str_mutatedSentence = this.shiftTool.shift(-int_shift, str_currentSentence);
 		setSentence(str_mutatedSentence);
 		return str_mutatedSentence;
 	}
@@ -92,7 +97,8 @@ public class Game {
 	 * @return Mutated string that has been substituted by the EncryptTool.
 	 */
 	public String substituteLetter(char replacedLetter, char replacementLetter){
-		String str_mutatedSentence = EncryptTool.substitutionTool(replacedLetter, replacementLetter, str_currentSentence);
+		// String str_mutatedSentence = EncryptTool.substitutionTool(replacedLetter, replacementLetter, str_currentSentence);
+		String str_mutatedSentence = this.substitutionTool.substitution(replacedLetter, replacementLetter, str_currentSentence);
 		setSentence(str_mutatedSentence);
 		return str_mutatedSentence;
 	}
