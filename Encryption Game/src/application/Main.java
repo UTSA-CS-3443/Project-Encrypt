@@ -25,6 +25,30 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		writer.close();
+		try {
+			writer = new PrintWriter("scores1.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		writer.close();
+		try {
+			writer = new PrintWriter("scores2.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		writer.close();
+		try {
+			writer = new PrintWriter("scores3.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		writer.close();
+		try {
+			writer = new PrintWriter("scores4.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		writer.close();
 		
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
