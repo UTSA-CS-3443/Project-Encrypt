@@ -42,7 +42,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		Scanner scan = null;
 		int i = 0;
 		scores = new Scores();
-		highScores = new int[4];
+		highScores = new int[50];
 		try {
 			scan = new Scanner(new File("scores.txt"));
 		} catch (FileNotFoundException e) {
