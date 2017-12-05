@@ -185,27 +185,7 @@ public class GameController implements EventHandler<ActionEvent>{
 		/* User has chosen to return to the main menu */
 		if (b.getText().equals("Quit to Main Menu")) {
 			if (this.gameOver) {
-				// Write score to scores.txt
-//				Formatter output;
-//				FileWriter file;
-//				try {
-//					file = new FileWriter("scores.txt", true);
-//					output = new Formatter(file); 
-//					output.format( "%d\n", this.game.getScore());
-//					if (output != null)
-//						output.close();
-//				} catch (SecurityException securityException) {
-//					System.err.println("Write permission denied. Terminating");
-//					System.exit(1);
-//				} catch (FileNotFoundException fileNotFoundException) {
-//					System.err.println("Error opening file. Terminating");
-//					System.exit(1);
-//				} catch (FormatterClosedException formatterClosedException ) {
-//					System.err.println("Error writing to file. Terminating.");
-//				} catch (IOException e) {
-//					System.err.println("Error creating file writer. Terminating.");
-//				}	
-				
+				// Write scores to scores files
 				Formatter output;
 				FileWriter file;
 				try {

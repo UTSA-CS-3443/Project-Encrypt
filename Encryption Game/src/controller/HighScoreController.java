@@ -71,8 +71,11 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		System.out.println( b.getText() );
 		Stage newStage = (Stage) b.getScene().getWindow();
 		
-		if (b.getText().equals("Back To Main Menu")) {
+		if (b.getText().equals("Back to Main Menu")) {
 			this.scores.backToMainMenu(newStage);
+		}
+		if (b.getText().equals("Back to Scores Menu")) {
+			this.scores.backToScoresMenu(newStage);
 		}
 		if (b.getText().equals("SUBMIT"))
 		{
