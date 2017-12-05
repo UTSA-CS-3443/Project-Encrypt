@@ -78,10 +78,10 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		this.scores.setLevel(this.level);
 		this.scores.readScores();
 		this.scores.getTopScores();
-		score1.setText("1: " + scores.getScore(0));
-		score2.setText("2: " + scores.getScore(1));
-		score3.setText("3: " + scores.getScore(2));
-		score4.setText("4: " + scores.getScore(3));
+		score1.setText("" + scores.getScore(0));
+		score2.setText("" + scores.getScore(1));
+		score3.setText("" + scores.getScore(2));
+		score4.setText("" + scores.getScore(3));
 	}
 	
 	public void initialize()
