@@ -35,6 +35,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	private Label score3;
 	@FXML
 	private Label score4;
+	private String temp;
 	
 	public HighScoreController()
 	{
@@ -42,12 +43,22 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		Scanner scan = null;
 		int i = 0;
 		scores = new Scores();
-		highScores = new int[50];
+		highScores = new int[300];
 		try {
 			scan = new Scanner(new File("scores.txt"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(scan.hasNext("PLAYER"))
+		{
+			temp = scan.next();
+			if(scan.hasNextInt())
+			{
+				playerS = scan.nextInt();
+			}
+			System.out.println(temp);
+			System.out.println(playerS);
 		}
 		while(scan.hasNextInt())
 		{

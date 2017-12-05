@@ -134,10 +134,10 @@ public class Game {
 		System.out.println("Current score: " + player.getInt_score());
 		System.out.println("Actual Word: " + wordBank.getWord(wordIndex) + "\n Your Word: " + strp_attemptSentence);
 		setScore( player.getInt_score() );
-		/*try {
-			fw = new FileWriter("scores.txt", true);
+		try {
+			fw = new FileWriter("scores.txt");
 			bw = new BufferedWriter(fw);
-			bw.write("PLAYER " + int_score + "\n") ;
+			bw.write("PLAYER " + player.getInt_score() + "\n") ;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -147,7 +147,7 @@ public class Game {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	public void setScore(int score) {

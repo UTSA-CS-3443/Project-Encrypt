@@ -33,7 +33,7 @@ public class Scores {
 	 */
 	public void readScores(int[] a) {
 		try {
-			fw = new FileWriter("scores.txt");
+			fw = new FileWriter("scores.txt", true);
 			bw = new BufferedWriter(fw);
 			for(int i = 0; i < 4; i++)
 			{
