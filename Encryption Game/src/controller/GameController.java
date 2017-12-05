@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Bank;
 import model.Game;
 
 public class GameController implements EventHandler<ActionEvent>{
@@ -177,6 +178,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				}
 				this.game.setChoice('G');
 				this.game.runGame('G');
+				this.prompt.setText("Actual Word: " + originalEncryption);
 				this.currentWord.setText( this.game.getSentence() );
 				this.originalEncryption = this.game.getSentence();
 				this.currentScore.setText( "Score: " + this.game.getScore() );
