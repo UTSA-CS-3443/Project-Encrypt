@@ -28,7 +28,6 @@
             <Label fx:id="score2" layoutX="303.0" layoutY="239.0" prefHeight="17.0" prefWidth="126.0" />
             <Label fx:id="score3" layoutX="303.0" layoutY="342.0" prefHeight="17.0" prefWidth="126.0" />
             <Label fx:id="score4" layoutX="303.0" layoutY="451.0" prefHeight="17.0" prefWidth="126.0" />
-            <Button layoutX="196.0" layoutY="530.0" mnemonicParsing="false" onAction="#handle" text="Show Scores" />
          </children>
       </Pane>
    </children>

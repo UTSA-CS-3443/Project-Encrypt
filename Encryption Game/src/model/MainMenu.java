@@ -1,6 +1,7 @@
 package model;
 
 import controller.GameController;
+import controller.ScoresController;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -27,7 +28,10 @@ public class MainMenu {
 				root = FXMLLoader.load(getClass().getResource("/view/LevelView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Level Select");
 			} else {
-				root = FXMLLoader.load(getClass().getResource("/view/ScoresView.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ScoresView.fxml"));
+				root = (Parent) loader.load();
+				ScoresController controller = loader.getController();
+				controller.setupScores();
 				primaryStage .setTitle("Project Encrypt: Scores");
 			}
 			primaryStage.setScene(new Scene(root, 480, 640));

@@ -40,7 +40,6 @@ public class Scores {
 				bw.write("" + a[i] + "\n");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {

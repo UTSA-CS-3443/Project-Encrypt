@@ -23,6 +23,8 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	private int[] randomScores2;
 	private int[] randomScores3;
 	private int[] randomScores4;
+	@FXML
+	private Button showScores;
 	
 	public ScoresController() {
 		super();
@@ -53,7 +55,15 @@ public class ScoresController implements EventHandler<ActionEvent>{
 		this.scores.randomScore(randomScores4);
 		this.scores.rankScore(randomScores4);
 		this.scores.readScores(randomScores4);
-		
+	}
+	
+	public void setupScores() {
+		//this.scores.readScores();
+		//this.scores.getTopScores();		
+		this.score1.setText( "" + randomScores1[3] );
+		this.score2.setText( "" + randomScores2[3] );
+		this.score3.setText( "" + randomScores3[3] );
+		this.score4.setText( "" + randomScores4[3] );
 	}
 	
 	
@@ -61,6 +71,7 @@ public class ScoresController implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		Button b = (Button)event.getSource();
 		System.out.println( b.getText() );
+		System.out.println(event.toString());
 		
 		Stage newStage = (Stage) b.getScene().getWindow();
 		
@@ -73,6 +84,7 @@ public class ScoresController implements EventHandler<ActionEvent>{
 			this.score3.setText( "" + randomScores3[3] );
 			this.score4.setText( "" + randomScores4[3]  );
 		}
+
 		if (b.getText().equals("Score 1"))
 		{
 			this.scores.LoadScore(newStage, randomScores1);

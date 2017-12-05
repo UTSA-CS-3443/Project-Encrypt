@@ -19,6 +19,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 
 
 	private Scores scores;
+	private int playerS;
 	private int[] highScores;
 	@FXML
 	private Label playerScore;
@@ -61,7 +62,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		score2.setText("" + highScores[2]);
 		score3.setText("" + highScores[1]);
 		score4.setText("" + highScores[0]);
-		playerScore.setText("");
+		playerScore.setText("" + playerS);
 	}
 	
 	public void handle(ActionEvent event)

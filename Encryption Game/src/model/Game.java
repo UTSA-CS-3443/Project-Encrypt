@@ -2,6 +2,11 @@ package model;
 
 import model.EncryptPlayer;
 import model.EncryptTool;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +23,8 @@ public class Game {
 	private String str_currentSentence; 	// Current word
 	private char choice;
 	private int currentScore; 			// Current running score of game
+	BufferedWriter bw = null;
+	FileWriter fw = null;
 	
 	public Game(String strp_playerName, int gameLevel) {
 		substitutionTool = new SubstitutionTool();
@@ -127,6 +134,20 @@ public class Game {
 		System.out.println("Current score: " + player.getInt_score());
 		System.out.println("Actual Word: " + wordBank.getWord(wordIndex) + "\n Your Word: " + strp_attemptSentence);
 		setScore( player.getInt_score() );
+		/*try {
+			fw = new FileWriter("scores.txt", true);
+			bw = new BufferedWriter(fw);
+			bw.write("PLAYER " + int_score + "\n") ;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 	}
 
 	public void setScore(int score) {
