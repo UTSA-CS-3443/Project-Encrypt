@@ -1,8 +1,5 @@
 package model;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-
 import controller.GameController;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;

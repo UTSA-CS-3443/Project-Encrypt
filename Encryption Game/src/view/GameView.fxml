@@ -62,7 +62,9 @@
             <TextField fx:id="input" layoutX="156.0" layoutY="334.0" onAction="#handle" />
             <Button layoutX="211.0" layoutY="380.0" mnemonicParsing="false" onAction="#handle" text="Submit" />
             <Button layoutX="178.0" layoutY="196.0" mnemonicParsing="false" onAction="#handle" text="Reset Encryption" />
-            <TextField fx:id="currentScore" alignment="CENTER" layoutX="345.0" layoutY="15.0" onAction="#handle" prefHeight="42.0" prefWidth="99.0" text="Score: 0" />
+            <TextField alignment="CENTER" layoutX="345.0" layoutY="15.0" onAction="#handle" prefHeight="42.0" prefWidth="99.0" />
+            <Label fx:id="inputWarning" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="311.0" prefHeight="17.0" prefWidth="405.0" textAlignment="CENTER" textFill="WHITE" />
+            <Label fx:id="currentScore" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="15.0" prefHeight="42.0" prefWidth="99.0" text="Score: 0" textAlignment="CENTER" />
          </children>
       </Pane>
    </children>
