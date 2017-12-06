@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Bank;
 import model.Game;
 
 public class GameController implements EventHandler<ActionEvent>{
@@ -174,16 +175,26 @@ public class GameController implements EventHandler<ActionEvent>{
 			}
 			/* User has chosen to check answer */
 			if (b.getText().equals("Check Answer")) {
-				if ( this.game.getIndex() >= 2 ) {					
-					this.prompt.setText( "No More Words to Decrypt. Quit to Main Menu to choose a new level." );
+				this.game.scoreSentence(this.game.getSentence());
+				if ( this.game.getIndex() >= 2 ) {		
+					this.prompt.setText(	"( You scored " + this.game.getRecentScore() + " points! " + 
+										"Actual Word: " + "\"" + this.game.getActualWord() + "\"" + 
+									    ". Your word: " + "\"" + this.game.getSentence() + "\" )\n" +
+										"No More Words to Decrypt. Quit to Main Menu to choose a new level.");
 					this.start = false;
 					this.gameOver = true;
+				}
+				else {
+					this.prompt.setText(	"( You scored " + this.game.getRecentScore() + " points! " + 
+										"Actual Word: " + "\"" + this.game.getActualWord() + "\"" + 
+									    ". Your word: " + "\"" + this.game.getSentence() + "\" )\n" +
+										"Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");
 				}
 				this.game.setChoice('G');
 				this.game.runGame('G');
 				this.currentWord.setText( this.game.getSentence() );
 				this.originalEncryption = this.game.getSentence();
-				this.currentScore.setText( "Score: " + this.game.getScore() );
+				this.currentScore.setText( "Score: " + this.game.getTotalScore() );
 			}
 		}
 		/* User has chosen to return to the main menu */
@@ -196,7 +207,7 @@ public class GameController implements EventHandler<ActionEvent>{
 					/* Write to general scores file */
 					file = new FileWriter("scores.txt", true);
 					output = new Formatter(file); 
-					output.format( "%d\n", this.game.getScore());
+					output.format( "%d\n", this.game.getTotalScore());
 					if (output != null)
 						output.close();
 					/* Write to level-specific scores file */
@@ -209,7 +220,7 @@ public class GameController implements EventHandler<ActionEvent>{
 					else
 						file = new FileWriter("scores4.txt", true);
 					output = new Formatter(file); 
-					output.format( "%d\n", this.game.getScore());
+					output.format( "%d\n", this.game.getTotalScore());
 					if (output != null)
 						output.close();
 				} catch (SecurityException securityException) {

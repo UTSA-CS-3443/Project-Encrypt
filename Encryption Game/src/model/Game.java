@@ -23,6 +23,7 @@ public class Game {
 	private String str_currentSentence; 	// Current word
 	private char choice;
 	private int currentScore; 			// Current running score of game
+	private int recentScore;				// Most recent score of a single word
 	BufferedWriter bw = null;
 	FileWriter fw = null;
 	
@@ -43,6 +44,9 @@ public class Game {
 	}
 	public void setSentence(String sentence) {
 		this.str_currentSentence = sentence;
+	}
+	public String getActualWord() {
+		return this.wordBank.getWord(getIndex());
 	}
 	public char getChoice() {
 		return this.choice;
@@ -69,7 +73,6 @@ public class Game {
 				case 'H': // Shift
 					break;
 				case 'G': // Grade
-					scoreSentence(str_currentSentence);
 					wordIndex++;
 					if (wordIndex <= 2)
 						setSentence( encryptedBank.getWord(wordIndex));
@@ -133,7 +136,8 @@ public class Game {
 		System.out.println("You scored " + int_score + " points!");
 		System.out.println("Current score: " + player.getInt_score());
 		System.out.println("Actual Word: " + wordBank.getWord(wordIndex) + "\n Your Word: " + strp_attemptSentence);
-		setScore( player.getInt_score() );
+		setTotalScore( player.getInt_score() );
+		setRecentScore( this.int_score );
 		try {
 			fw = new FileWriter("scores.txt");
 			bw = new BufferedWriter(fw);
@@ -149,12 +153,19 @@ public class Game {
 			e.printStackTrace();
 		}
 	}
+	
+	public void setRecentScore(int score) {
+		this.recentScore = score;
+	}
+	public int getRecentScore() { 
+		return this.recentScore;
+	}
 
-	public void setScore(int score) {
+	public void setTotalScore(int score) {
 		this.currentScore = score;
 	}
 	
-	public int getScore() {
+	public int getTotalScore() {
 		return this.currentScore;
 	}
 
