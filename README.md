@@ -1,4 +1,4 @@
-# Project-Encrypts
+# Project-Encrypt
 
 Objective:
 	The objective of Project Encrypt is to correctly decrypt all words in a given game in as few mutations as possible.
@@ -39,7 +39,7 @@ Gameplay Overview:
 	- Level 2 Scores: 	Allows user to view top four (4) high scores recorded for Level 2
 	- Level 3 Scores: 	Allows user to view top four (4) high scores recorded for Level 3
 	- Level 4 Scores: 	Allows user to view top four (4) high scores recorded for Level 4
-	- Back to Main Menu:	Allows user to return to the main menu. No score is recorded if user exits before finishing a game.
+	- Back to Main Menu:	Allows user to return to the main menu. 
 	
 5. 	HighScoreView Actions
 	- Back to Scores Menu:	Allows user to return to the scores menu. 
