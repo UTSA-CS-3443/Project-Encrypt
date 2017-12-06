@@ -21,10 +21,10 @@ Gameplay Overview:
 2.	GameView Actions
 	- START:				Starts the current game. User must click on START before the game becomes playable.
 	- Reset Encryption:	Allows user to return to the original encryption of the current word. Useful when user decides to try another strategy in decrypting the word.
-	- Submit:			Allows user to submit required text input after when substituting and shifting.
+	- Submit:			Allows user to submit required text input when substituting or shifting.
 	- Substitution:		Allows user to substitute all instances of a particular letter in the current encryption with another letter. 
 	- Shift:				Allows user to shift the current encryption by a particular number of increments to the ASCII value of each character (character range of a-z).
-	- Check Answer:		Allows user to grade their current decryption by comparing it to the actual current word.
+	- Check Answer:		Allows user to grade their current decryption by comparing it to the actual current word. Also updates total score for the current game.
 	- Quit to Main Menu:	Allows user to return to the main menu. No score is recorded if user exits before finishing a game.
 	
 3. 	LevelView Actions
