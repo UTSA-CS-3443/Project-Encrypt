@@ -27,7 +27,10 @@ public class MainMenu {
 			} else if (selection.equals("Level Select")) {
 				root = FXMLLoader.load(getClass().getResource("/view/LevelView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Level Select");
-			} else {
+			} else if (selection.equals("Quit")) {
+				root = FXMLLoader.load(getClass().getResource("/view/QuitView.fxml"));}
+				//primaryStage .setTitle("Project Encrypt: Level Select");
+			else {
 				root = FXMLLoader.load(getClass().getResource("/view/ScoresView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Scores");
 			}
