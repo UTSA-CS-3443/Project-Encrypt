@@ -17,22 +17,22 @@
    <children>
       <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: rgb(65,105,225);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="StartButton" layoutX="167.0" layoutY="387.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Start" textAlignment="CENTER">
+            <Button fx:id="StartButton" layoutX="167.0" layoutY="390.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Start" textAlignment="CENTER">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
                </font>
             </Button>
-            <Button layoutX="167.0" layoutY="499.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="48.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Scores">
+            <Button layoutX="167.0" layoutY="490.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Scores">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
                </font>
             </Button>
-            <Text layoutX="147.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCRYPT" textAlignment="CENTER" wrappingWidth="235.21875">
+            <Text layoutX="153.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ENCRYPT" textAlignment="CENTER" wrappingWidth="235.21875">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="54.0" />
                </font>
             </Text>
-            <Button fx:id="LevelButton" layoutX="167.0" layoutY="443.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Level Select">
+            <Button fx:id="LevelButton" layoutX="167.0" layoutY="440.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Level Select">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
                </font>
@@ -42,22 +42,17 @@
                   <Font size="9.0" />
                </font>
             </Text>
-            <Text layoutX="85.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROJECT" textAlignment="CENTER" wrappingWidth="235.21875">
+            <Text layoutX="61.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROJECT" textAlignment="CENTER" wrappingWidth="235.21875">
                <font>
                   <Font name="Zapfino" size="22.0" />
                </font>
             </Text>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="166.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../git/Project-Encrypt/Encryption%20Game/src/view/icon-512@x.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="155.0" layoutY="14.0">
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="140.0" layoutY="14.0">
                <image>
                   <Image url="@icon-512@x.png" />
                </image>
             </ImageView>
-            <Button fx:id="StartButton1" layoutX="168.0" layoutY="554.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Quit" textAlignment="CENTER">
+            <Button fx:id="StartButton1" layoutX="167.0" layoutY="540.0" mnemonicParsing="false" onAction="#handle" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: rgb(255,255,51);" text="Quit" textAlignment="CENTER">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="22.0" />
                </font>
