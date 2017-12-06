@@ -124,6 +124,10 @@ public class GameController implements EventHandler<ActionEvent>{
 					this.inputWarning.setText("** Invalid character. Try again. **");
 					break;
 				}
+				if (this.input.getText().charAt(0) == '-') {
+					this.inputWarning.setText("** You must enter a positive integer. Try again. **");
+					break;
+				}
 				this.game.shiftSentence(this.input.getText());
 				this.currentWord.setText(this.game.getSentence());
 				this.prompt.setText("Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");

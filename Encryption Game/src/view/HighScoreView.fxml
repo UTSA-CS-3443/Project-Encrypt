@@ -24,8 +24,8 @@
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="playerInput" alignment="CENTER" layoutX="130.0" layoutY="391.0" onAction="#handle" prefHeight="25.0" prefWidth="159.0" promptText="ENTER YOUR NAME" />
-            <Button layoutX="289.0" layoutY="391.0" mnemonicParsing="false" onAction="#handle" prefHeight="25.0" prefWidth="62.0" text="SUBMIT" />
+            <TextField fx:id="playerInput" alignment="CENTER" layoutX="111.0" layoutY="391.0" onAction="#handle" prefHeight="25.0" prefWidth="159.0" promptText="ENTER YOUR NAME" />
+            <Button layoutX="270.0" layoutY="391.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="89.0" text="SUBMIT" />
             <Label fx:id="playerName" layoutX="47.0" layoutY="169.0" prefHeight="19.0" prefWidth="128.0" text="PLAYER 1">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
