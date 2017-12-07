@@ -24,9 +24,7 @@
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="playerInput" alignment="CENTER" layoutX="111.0" layoutY="391.0" onAction="#handle" prefHeight="25.0" prefWidth="159.0" promptText="ENTER YOUR NAME" />
-            <Button layoutX="270.0" layoutY="391.0" mnemonicParsing="false" onAction="#handle" prefHeight="27.0" prefWidth="89.0" text="SUBMIT" />
-            <Label fx:id="playerName" layoutX="47.0" layoutY="169.0" prefHeight="19.0" prefWidth="128.0" text="PLAYER 1">
+            <Label fx:id="playerName" layoutX="47.0" layoutY="169.0" prefHeight="19.0" prefWidth="128.0" text="SCORE 1">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
@@ -51,22 +49,22 @@
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="playerName1" layoutX="47.0" layoutY="199.0" prefHeight="19.0" prefWidth="128.0" text="AL DANTE">
+            <Label fx:id="playerName1" layoutX="47.0" layoutY="199.0" prefHeight="19.0" prefWidth="128.0" text="SCORE 2">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="playerName11" layoutX="47.0" layoutY="233.0" prefHeight="19.0" prefWidth="128.0" text="2GUD">
+            <Label fx:id="playerName11" layoutX="47.0" layoutY="233.0" prefHeight="19.0" prefWidth="128.0" text="SCORE 3">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="playerName111" layoutX="47.0" layoutY="267.0" prefHeight="19.0" prefWidth="128.0" text="NOICE">
+            <Label fx:id="playerName111" layoutX="47.0" layoutY="267.0" prefHeight="19.0" prefWidth="128.0" text="SCORE 4">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="playerName1111" layoutX="47.0" layoutY="301.0" prefHeight="19.0" prefWidth="128.0" text="A-Z">
+            <Label fx:id="playerName1111" layoutX="47.0" layoutY="301.0" prefHeight="19.0" prefWidth="128.0" text="SCORE 5">
                <font>
                   <Font name="Tw Cen MT Condensed Extra Bold" size="16.0" />
                </font>
