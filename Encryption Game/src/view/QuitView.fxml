@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="640.0" maxWidth="480.0" minHeight="640.0" minWidth="480.0" prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane maxHeight="640.0" maxWidth="480.0" minHeight="640.0" minWidth="480.0" prefHeight="640.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuitController">
    <children>
       <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="480.0" style="-fx-background-color: rgb(65,105,225);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -37,11 +37,17 @@
                   <Image url="@icon-512@x.png" />
                </image>
             </ImageView>
-            <Text layoutX="122.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR PLAYING PROJECT ENCRYPT!" textAlignment="CENTER" wrappingWidth="235.21875">
+            <Text layoutX="122.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR PLAYING!" textAlignment="CENTER" wrappingWidth="235.21875">
                <font>
                   <Font name="Apple SD GothicNeo ExtraBold" size="32.0" />
                </font>
             </Text>
+            <Label fx:id="closePrompt" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" layoutY="464.0" onDragDetected="#handle" prefHeight="105.0" prefWidth="350.0" text="If you do nothing, Project Encrypt will close automatically in 5 seconds." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Apple SD GothicNeo ExtraBold" size="19.0" />
+               </font>
+            </Label>
+            <Button layoutX="200.0" layoutY="549.0" mnemonicParsing="false" onAction="#handle" prefWidth="80.0" text="Cancel" />
          </children>
       </Pane>
    </children>

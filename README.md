@@ -46,5 +46,6 @@ Gameplay Overview:
 	- Back to Main Menu:		Allows user to return to the main menu.
 	
 6. 	QuitView Actions
-	- No user actions available. Entire application closes three (3) seconds after loading this view. 
+	- Cancel:	Allows user to return to Main Menu if they click before five (5) seconds have passed.
+	- Entire application closes five (5) seconds after loading this view if no user action is taken. 
 	

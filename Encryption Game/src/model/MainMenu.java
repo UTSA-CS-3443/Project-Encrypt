@@ -1,6 +1,7 @@
 package model;
 
 import controller.GameController;
+import controller.QuitController;
 import controller.ScoresController;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
@@ -30,10 +31,10 @@ public class MainMenu {
 				root = FXMLLoader.load(getClass().getResource("/view/LevelView.fxml"));
 				primaryStage .setTitle("Project Encrypt: Level Select");
 			} else if (selection.equals("Quit")) {
-				root = FXMLLoader.load(getClass().getResource("/view/QuitView.fxml"));
-				PauseTransition delay = new PauseTransition(Duration.seconds(3));
-				delay.setOnFinished( event -> primaryStage.close() );
-				delay.play();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/QuitView.fxml"));
+				root = (Parent) loader.load();
+				QuitController controller = loader.getController();
+				controller.setStage(primaryStage);
 			}
 			else {
 				root = FXMLLoader.load(getClass().getResource("/view/ScoresView.fxml"));
