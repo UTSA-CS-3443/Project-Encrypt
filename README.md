@@ -1,7 +1,7 @@
 # Project-Encrypt
 
 1. 	Objective:
-	The objective of Project Encrypt is to correctly decrypt all words in a given game in as few mutations as possible.
+	- The objective of Project Encrypt is to correctly decrypt all words in a given game in as few mutations as possible.
 	There are four unique levels, each with three unique encrypted words, increasing in difficulty from Level 1 to Level 4.
 
 2.	Gameplay Overview:
