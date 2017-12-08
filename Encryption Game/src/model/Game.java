@@ -39,26 +39,6 @@ public class Game {
 		choice = ' ';
 	}
 	
-	public String getSentence() {
-		return this.str_currentSentence;
-	}
-	public void setSentence(String sentence) {
-		this.str_currentSentence = sentence;
-	}
-	public String getActualWord() {
-		return this.wordBank.getWord(getIndex());
-	}
-	public char getChoice() {
-		return this.choice;
-	}
-	public void setChoice(char choice) {
-		this.choice = choice;
-	}
-	
-	public int getIndex() {
-		return this.wordIndex;
-	}
-	
 	/**
 	 * Method that runs the game. Runs a while loop that breaks when the player selects the quit option 'Q' when prompted.
 	 * Prints out a menu (could probably be put in a method) as well as calls selected methods when the player makes a choice.
@@ -154,21 +134,90 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * This method returns the current sentence
+	 * @return current sentence
+	 */
+	public String getSentence() {
+		return this.str_currentSentence;
+	}
+	
+	/**
+	 * This method sets the current sentence
+	 * @sentence current sentence
+	 */
+	public void setSentence(String sentence) {
+		this.str_currentSentence = sentence;
+	}
+	
+	/**
+	 * This method returns the actual word (not decrypted)
+	 * @return actual word (not decrypted)
+	 */
+	public String getActualWord() {
+		return this.wordBank.getWord(getIndex());
+	}
+	
+	/**
+	 * This method returns the character representation of the action selected
+	 * @return character representation of the action selected
+	 */
+	public char getChoice() {
+		return this.choice;
+	}
+	
+	/**
+	 * This method sets the character representation of the action selected
+	 * choice character representation of the action selected
+	 */
+	public void setChoice(char choice) {
+		this.choice = choice;
+	}
+	
+	/**
+	 * This method returns the current index of the banks being used
+	 * @return current index of the banks being used
+	 */
+	public int getIndex() {
+		return this.wordIndex;
+	}
+	
+	/**
+	 * This method sets the most recent score earned from grading a single word
+	 * @param score most recent score earned from grading a single word
+	 */
 	public void setRecentScore(int score) {
 		this.recentScore = score;
 	}
+	
+	/**
+	 * This method returns the most recent score earned from grading a single word
+	 * @returns score most recent score earned from grading a single word
+	 */
 	public int getRecentScore() { 
 		return this.recentScore;
 	}
 
+	/**
+	 * This method updates the total running score of the current game
+	 * @param score total running score of the current game
+	 */
 	public void setTotalScore(int score) {
 		this.currentScore = score;
 	}
 	
+	/**
+	 * This method returns the total running score of the current game
+	 * @return total running score of the current game
+	 */
 	public int getTotalScore() {
 		return this.currentScore;
 	}
 
+	/**
+	 * This method allows the user to return to the main menu 
+	 * @param primaryStage Stage object to set new scene on
+	 */
 	public void backToMainMenu(Stage primaryStage) {
 		/* If user chooses to return to main menu */
 		try {

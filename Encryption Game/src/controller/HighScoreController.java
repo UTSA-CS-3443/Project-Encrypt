@@ -2,11 +2,6 @@ package controller;
 
 import javafx.event.ActionEvent;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
-import controller.ScoresController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,13 +14,7 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 
 
 	private Scores scores;
-	private int playerS;
-	private int[] highScores;
 	private int level;
-	@FXML
-	private Label playerScore;
-	@FXML
-	private Label playerName;
 	@FXML
 	private TextField playerInput;
 	@FXML
@@ -36,67 +25,48 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 	private Label score3;
 	@FXML
 	private Label score4;
-	private String temp;
 	
 	public HighScoreController()
 	{
 		super();
 		this.scores = new Scores();
-
-		Scanner scan = null;
-		int i = 0;
-		scores = new Scores();
-		highScores = new int[300];
-		try {
-			scan = new Scanner(new File("scores.txt"));
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(scan.hasNext("PLAYER"))
-		{
-			temp = scan.next();
-			if(scan.hasNextInt())
-			{
-				playerS = scan.nextInt();
-			}
-			System.out.println(temp);
-			System.out.println(playerS);
-		}
-		while(scan.hasNextInt())
-		{
-			highScores[i] = scan.nextInt();
-			i++;
-		}
 	}
-
+	/**
+	 * This method sets the level for which all scores will be displayed
+	 * @param level level for which all scores will be displayed
+	 */
 	public void setLevel(int level) {
 		this.level = level;
 	}
 	
+	/**
+	 * Loads top four scores for the specified level. 
+	 * If no score has been recorded for a particular rank (Score 2, Score 3, etc.), score is denoted with a "-"
+	 * @param level level for which all scores will be displayed
+	 */
 	public void setupScores(int level) {
 		this.scores.setLevel(this.level);
 		this.scores.readScores();
 		this.scores.getTopScores();
-		score1.setText("" + scores.getScore(0));
-		score2.setText("" + scores.getScore(1));
-		score3.setText("" + scores.getScore(2));
-		score4.setText("" + scores.getScore(3));
+		if (scores.getScore(0) != 0) 
+			score1.setText("" + scores.getScore(0));
+		else
+			score1.setText("-");
+		if (scores.getScore(1) != 0) 
+			score2.setText("" + scores.getScore(1));
+		else
+			score2.setText("-");
+		if (scores.getScore(2) != 0) 
+			score3.setText("" + scores.getScore(2));
+		else
+			score3.setText("-");
+		if (scores.getScore(3) != 0) 
+			score4.setText("" + scores.getScore(3));
+		else
+			score4.setText("-");
 	}
 	
-	public void initialize()
-	{
-//		score1.setText("" + highScores[3]);
-//		score2.setText("" + highScores[2]);
-//		score3.setText("" + highScores[1]);
-//		score4.setText("" + highScores[0]);
-//		score1.setText("1: " + scores.getScore(0));
-//		score2.setText("2: " + scores.getScore(1));
-//		score3.setText("3: " + scores.getScore(2));
-//		score4.setText("4: " + scores.getScore(3));
-		playerScore.setText("" + playerS);
-	}
-	
+	@Override
 	public void handle(ActionEvent event)
 	{
 		Button b = (Button)event.getSource();
@@ -109,10 +79,5 @@ public class HighScoreController implements EventHandler<ActionEvent>{
 		if (b.getText().equals("Back to Scores Menu")) {
 			this.scores.backToScoresMenu(newStage);
 		}
-		if (b.getText().equals("SUBMIT"))
-		{
-			this.playerName.setText(playerInput.getText());
-		}
-		
 	}
 }

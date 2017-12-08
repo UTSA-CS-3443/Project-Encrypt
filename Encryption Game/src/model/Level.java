@@ -12,6 +12,11 @@ public class Level {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * This method loads the level selected by the user
+	 * @param primaryStage Stage object for loading level
+	 * @param level specified level selected by the user
+	 */
 	public void loadLevel (Stage primaryStage, int level) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GameView.fxml"));
@@ -26,6 +31,10 @@ public class Level {
 		}
 	}
 
+	/**
+	 * This method allows the user to return to the main menu 
+	 * @param primaryStage Stage object to set new scene on
+	 */
 	public void backToMainMenu(Stage primaryStage) {
 		/* If user chooses to return to main menu */
 		try {

@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Bank;
 import model.Game;
 
 public class GameController implements EventHandler<ActionEvent>{
@@ -42,7 +41,6 @@ public class GameController implements EventHandler<ActionEvent>{
 	
 	public GameController() {
 		super();
-		// this.game = new Game("Player 1", level);	
 		this.start = false;
 		this.gameOver = false;
 		this.acceptingInput = false;
@@ -51,18 +49,32 @@ public class GameController implements EventHandler<ActionEvent>{
 		this.choice = ' ';
 	}
 	
+	/**
+	 * This method sets the current level of the game being played
+	 * @param level current level of the game being played
+	 */
 	public void setLevel(int level) {
 		this.level = level;
 		this.game = new Game("Player 1", level);
 	}
 	
+	/**
+	 * This methods sets the current choice character
+	 * @param current choice character
+	 */
 	public void setChoice(char choice) {
 		this.choice = choice;
 	}
+	
+	/**
+	 * This methods returns the current choice character
+	 * @return current choice character
+	 */
 	public char getChoice() {
 		return this.choice;
 	}
 
+	@Override
 	public void handle(ActionEvent event) {
 		
 		Button b = (Button)event.getSource();
@@ -111,6 +123,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.currentWord.setText(this.game.getSentence());
 				this.subPart1 = false;
 				this.input.setText("");
+				this.acceptingInput = false;
 				break;
 			}
 			/* User has entered shift value */
@@ -133,6 +146,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.currentWord.setText(this.game.getSentence());
 				this.prompt.setText("Substitute, Shift, Check Your Answer, \nor Quit to Main Menu");
 				this.input.setText("");
+				this.acceptingInput = false;
 				break;
 			}
 		}
@@ -174,7 +188,7 @@ public class GameController implements EventHandler<ActionEvent>{
 				this.acceptingInput = true;
 			}
 			/* User has chosen to check answer */
-			if (b.getText().equals("Check Answer")) {
+			if (b.getText().equals("Check Answer") && !acceptingInput ) {
 				this.game.scoreSentence(this.game.getSentence());
 				if ( this.game.getIndex() >= 2 ) {		
 					this.prompt.setText(	"( You scored " + this.game.getRecentScore() + " points! " + 

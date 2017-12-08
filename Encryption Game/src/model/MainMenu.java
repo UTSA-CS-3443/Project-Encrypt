@@ -2,11 +2,8 @@ package model;
 
 import controller.GameController;
 import controller.QuitController;
-import controller.ScoresController;
-import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
@@ -16,6 +13,11 @@ public class MainMenu {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * This method launches the scene chosen by the user from the main menu
+	 * @param selection String representing the text of the button clicked in MainView
+	 * @param primaryStage Stage object for setting up next scene
+	 */
 	public void changeMode(String selection, Stage primaryStage) {
 		try {
 			Parent root;

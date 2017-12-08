@@ -49,3 +49,8 @@ Gameplay Overview:
 	- Cancel:	Allows user to return to Main Menu if they click before five (5) seconds have passed.
 	- Entire application closes five (5) seconds after loading this view if no user action is taken. 
 	
+*** Encryption Key (Actual words and how to decrypt):
+	- Level 1:	"class" (Shift), "application" (Substitution), "java" (Substitution)
+	- Level 2:	"interface" (Substitution), "method" (Substitution), "strings" (Shift)
+	- Level 3:	"collection" (Shift), "integer" (Shift), "dependency" (Shift)
+	- Level 4: 	"synchronized" (Shift), "encryption" (Shift), "abstract" (Shift)

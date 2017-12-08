@@ -11,6 +11,10 @@ public class Quit {
 		// No constructor implemtation required 
 	};
 	
+	/**
+	 * This method allows the user to return to the main menu 
+	 * @param primaryStage Stage object to set new scene on
+	 */
 	public void backToMainMenu(Stage primaryStage) {
 		/* If user chooses to return to main menu */
 		try {

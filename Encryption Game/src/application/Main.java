@@ -17,14 +17,8 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		// Clear existing contents of scores.txt before starting application
+		// Clear existing contents of all scores files before starting application
 		PrintWriter writer = null;
-		try {
-			writer = new PrintWriter("scores.txt");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		writer.close();
 		try {
 			writer = new PrintWriter("scores1.txt");
 		} catch (FileNotFoundException e) {
